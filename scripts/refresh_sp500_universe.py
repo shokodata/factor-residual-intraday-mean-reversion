@@ -10,6 +10,21 @@ from pathlib import Path
 
 SOURCE_URL = "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
 
+FACTOR_ROWS = [
+    ("SPY", "__MARKET__"),
+    ("XLC", "__SECTOR__:Communication Services"),
+    ("XLY", "__SECTOR__:Consumer Discretionary"),
+    ("XLP", "__SECTOR__:Consumer Staples"),
+    ("XLE", "__SECTOR__:Energy"),
+    ("XLF", "__SECTOR__:Financials"),
+    ("XLV", "__SECTOR__:Health Care"),
+    ("XLI", "__SECTOR__:Industrials"),
+    ("XLK", "__SECTOR__:Information Technology"),
+    ("XLB", "__SECTOR__:Materials"),
+    ("XLRE", "__SECTOR__:Real Estate"),
+    ("XLU", "__SECTOR__:Utilities"),
+]
+
 
 def yahoo_symbol(symbol: str) -> str:
     """Translate S&P display symbols to Yahoo Finance notation."""
@@ -51,6 +66,7 @@ def write_universe(path: str | Path, constituents: list[tuple[str, str]]) -> Non
         writer = csv.writer(handle)
         writer.writerow(["symbol", "sector"])
         writer.writerows(constituents)
+        writer.writerows(FACTOR_ROWS)
 
 
 def main() -> None:

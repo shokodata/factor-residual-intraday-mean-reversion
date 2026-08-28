@@ -77,6 +77,81 @@ def _side(weight: float) -> str:
     return "LONG" if weight >= 0 else "SHORT"
 
 
+def format_single_report(report: dict, repository: str = "") -> str:
+    metrics = report["metrics"]
+    lines = ["**Residual Alpha — locked single-name paper strategy**"]
+    if repository:
+        lines.append(f"Repository: `{repository}`")
+    lines.extend(
+        [
+            f"Signal timestamp: `{report['as_of']}`",
+            f"Universe evaluated: **{report['universe_size']} stocks**",
+            f"Backtest: **{metrics['completed_trades']} completed trades**, "
+            f"win rate **{metrics['win_rate']:.1%}**, average trade **{metrics['average_trade_return']:.3%}**",
+            f"Test return: **{metrics['total_return']:.2%}**; max drawdown: **{metrics['max_drawdown']:.2%}**; "
+            f"profit factor: **{metrics['profit_factor']:.2f}**",
+        ]
+    )
+    validation = report.get("validation")
+    if validation:
+        lines.extend(
+            [
+                f"\n**Validation gate: {validation['status']}**",
+                f"Longer test: **{validation['total_return']:.2%}**, "
+                f"{validation['completed_trades']} trades, profit factor "
+                f"**{validation['profit_factor']:.2f}**, max drawdown "
+                f"**{validation['max_drawdown']:.2%}**",
+                validation["note"],
+            ]
+        )
+    state = report.get("current_state", {})
+    action = state.get("action", "NO_ENTRY")
+    action_label = action if not validation or validation.get("status") == "PASSED" else f"OBSERVE ONLY (model: {action})"
+    lines.append(f"\n**Current action: {action_label}**")
+    trade = state.get("trade")
+    if trade:
+        lines.extend(
+            [
+                f"Stock: **{trade['direction']} {trade['symbol']}** `{abs(trade['stock_weight']):.1%}`; "
+                f"entry z `{trade['entry_z']:+.2f}`",
+                f"Hedges: **{_side(trade['spy_weight'])} SPY** `{abs(trade['spy_weight']):.1%}`; "
+                f"**{_side(trade['sector_etf_weight'])} {trade['sector_etf']}** "
+                f"`{abs(trade['sector_etf_weight']):.1%}`",
+                f"Entry: `{trade['entry_time']}`; current z: `{state.get('current_z', trade.get('exit_z'))}`",
+            ]
+        )
+        if action == "HOLD":
+            lines.append(f"Time remaining: **{state.get('remaining_minutes', 0)} minutes**")
+        if action == "EXIT":
+            lines.append(
+                f"Exit reason: **{trade.get('exit_reason')}**; trade return: "
+                f"**{trade.get('net_return', 0.0):.3%}**"
+            )
+    else:
+        lines.append("No qualifying position is open. Do not force a trade.")
+    lines.extend(
+        [
+            "Exit checks: hourly convergence, 120 minutes, widening by 1.5 z, or close by 3:50 p.m. ET.",
+            "Safety: check current company news and earnings before acting on an ENTRY alert.",
+            "\nPaper research only — historical event exclusions are not included.",
+        ]
+    )
+    return "\n".join(lines)
+
+
+def notify_single_report(report_path: str | Path) -> None:
+    webhook_url = os.environ.get("DISCORD_WEBHOOK_URL")
+    if not webhook_url:
+        raise RuntimeError("DISCORD_WEBHOOK_URL is not configured")
+    with Path(report_path).open(encoding="utf-8") as handle:
+        report = json.load(handle)
+    post_webhook(
+        webhook_url,
+        format_single_report(report, os.environ.get("GITHUB_REPOSITORY", "")),
+    )
+    print("Discord single-strategy report delivered successfully")
+
+
 def post_webhook(webhook_url: str, content: str) -> None:
     if not webhook_url.startswith("https://"):
         raise ValueError("Discord webhook URL must use HTTPS")

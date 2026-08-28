@@ -12,6 +12,7 @@ from zoneinfo import ZoneInfo
 from .backtest import BacktestConfig, run_backtest
 from .data import read_bars
 from .synthetic import generate
+from .single_strategy import SingleStrategyConfig, run_single_strategy
 
 
 SECTOR_ETFS = {
@@ -47,6 +48,16 @@ def _parser() -> argparse.ArgumentParser:
     backtest.add_argument("--entry-z", type=float, default=1.5)
     backtest.add_argument("--exit-z", type=float, default=0.35)
     backtest.add_argument("--cost-bps", type=float, default=1.0)
+    single = subparsers.add_parser(
+        "single-backtest", help="run the locked single-name strategy with ETF hedges"
+    )
+    single.add_argument("input")
+    single.add_argument("--output", default="single-results")
+    single.add_argument("--entry-z", type=float, default=1.5)
+    single.add_argument("--maximum-entry-z", type=float, default=5.0)
+    single.add_argument("--exit-z", type=float, default=0.35)
+    single.add_argument("--cost-bps", type=float, default=1.0)
+    single.add_argument("--validation-summary")
     return parser
 
 
@@ -55,6 +66,36 @@ def main() -> None:
     if args.command == "generate-demo":
         generate(args.output, args.bars)
         print(f"Wrote {args.output}")
+        return
+    if args.command == "single-backtest":
+        output = Path(args.output)
+        output.mkdir(parents=True, exist_ok=True)
+        report = run_single_strategy(
+            read_bars(args.input),
+            SingleStrategyConfig(
+                entry_z=args.entry_z,
+                maximum_entry_z=args.maximum_entry_z,
+                exit_z=args.exit_z,
+                cost_bps=args.cost_bps,
+            ),
+        )
+        if args.validation_summary:
+            with Path(args.validation_summary).open(encoding="utf-8") as handle:
+                report["validation"] = json.load(handle)
+        with (output / "single_report.json").open("w", encoding="utf-8") as handle:
+            json.dump(report, handle, indent=2, default=str)
+        with (output / "metrics.json").open("w", encoding="utf-8") as handle:
+            json.dump(report["metrics"], handle, indent=2)
+        with (output / "trades.csv").open("w", newline="", encoding="utf-8") as handle:
+            fieldnames = list(report["trades"][0]) if report["trades"] else [
+                "symbol", "sector", "direction", "entry_time", "entry_z", "stock_weight",
+                "spy_weight", "sector_etf", "sector_etf_weight", "exit_time", "exit_z",
+                "exit_reason", "holding_bars", "net_return",
+            ]
+            writer = csv.DictWriter(handle, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerows(report["trades"])
+        print(json.dumps(report["metrics"], indent=2))
         return
     config = BacktestConfig(
         beta_window=args.beta_window,

@@ -50,11 +50,11 @@ jobs:
 
       - name: Run factor-residual backtest
         if: ${{ github.event_name == 'workflow_dispatch' || steps.market_window.outputs.active == 'true' }}
-        run: python -m residual_alpha.cli backtest data/intraday.csv --output hourly-results
+        run: python -m residual_alpha.cli single-backtest data/intraday.csv --output hourly-results --validation-summary config/validation.json
 
       - name: Send metrics to Discord
         if: ${{ (github.event_name == 'workflow_dispatch' || steps.market_window.outputs.active == 'true') && env.DISCORD_WEBHOOK_URL != '' }}
-        run: python scripts/notify_discord.py hourly-results/metrics.json --candidates hourly-results/candidates.json
+        run: python scripts/notify_discord.py hourly-results/single_report.json --single-report
 
       - name: Send failure alert to Discord
         if: ${{ failure() && env.DISCORD_WEBHOOK_URL != '' }}

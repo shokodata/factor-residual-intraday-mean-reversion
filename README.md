@@ -56,6 +56,12 @@ Outputs:
 
 Discord also highlights one single-name paper setup selected from current entry-threshold candidates. Signals beyond an absolute z-score of 5 are excluded from that featured slot as potential event or data outliers. The setup includes approximate SPY and sector-ETF hedges derived from the model coefficients, permits new paper entries only from 10:00 a.m. through 2:30 p.m. Eastern, and states convergence, 120-minute, and 3:50 p.m. exits. Yahoo is not a dependable real-time news/earnings safety source, so the report requires a manual company-news and earnings check before entry.
 
+The locked single-name simulator matches the hourly deployment cadence: decisions use completed bars around 40 minutes past each hour, it permits at most one new position per trading day, and it checks convergence or widening at subsequent hourly decisions. It exits after two hours or at the final intraday decision before the close. This intentionally avoids pretending that an hourly GitHub workflow can monitor five-minute exits in real time.
+
+## Validation status
+
+The exact locked, hourly, one-entry-per-day specification was tested on one month of available five-minute data with actual SPY and sector-ETF hedge returns and one-basis-point entry/exit turnover costs. It lost 1.82% over 23 completed trades, with a 43.5% win rate, 0.43 profit factor, and 3.02% maximum drawdown. The result is stored in `config/validation.json` and the Discord report displays a failed validation gate. Model actions are observation-only until a genuinely out-of-sample specification passes a longer and more complete test.
+
 Run the tests:
 
 ```sh

@@ -1,0 +1,12 @@
+{
+  "status": "FAILED",
+  "sample": "One month of five-minute yfinance data ending 2026-08-28",
+  "universe_evaluated": 477,
+  "completed_trades": 23,
+  "total_return": -0.01824328400367914,
+  "max_drawdown": -0.030194119336370395,
+  "win_rate": 0.43478260869565216,
+  "average_trade_return": -0.0007966079487407708,
+  "profit_factor": 0.434188237262607,
+  "note": "Current specification is not validated for trading. Continue research and forward paper observation only."
+}
