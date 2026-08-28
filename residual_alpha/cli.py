@@ -60,21 +60,27 @@ def main() -> None:
             writer.writerows((timestamp, symbol, weight) for symbol, weight in weights.items())
     latest_weights = result.weights[-1] if result.weights else {}
     latest_zscores = result.zscores[-1] if result.zscores else {}
+    latest_active = result.active_signals[-1] if result.active_signals else {}
     candidates = [
         {
             "symbol": symbol,
-            "direction": "LONG" if weight > 0 else "SHORT",
+            "direction": "LONG" if latest_zscores.get(symbol, 0.0) < 0 else "SHORT",
             "target_weight": weight,
             "residual_zscore": latest_zscores.get(symbol, 0.0),
         }
         for symbol, weight in latest_weights.items()
-        if abs(weight) > 1e-8
+        if latest_active.get(symbol, False)
+        and abs(latest_zscores.get(symbol, 0.0)) >= config.entry_z
+        and abs(weight) > 1e-8
+        and ((weight > 0) == (latest_zscores.get(symbol, 0.0) < 0))
     ]
     candidates.sort(key=lambda item: abs(item["target_weight"]), reverse=True)
     with (output / "candidates.json").open("w", encoding="utf-8") as handle:
         json.dump(
             {
                 "as_of": result.timestamps[-1].isoformat() if result.timestamps else None,
+                "universe_size": len(latest_weights),
+                "active_candidate_count": len(candidates),
                 "candidates": candidates,
             },
             handle,

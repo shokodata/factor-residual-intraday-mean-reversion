@@ -39,10 +39,11 @@ python3 -m residual_alpha.cli generate-demo demo.csv --bars 500
 python3 -m residual_alpha.cli backtest demo.csv --output results
 ```
 
-Download the current rolling Yahoo Finance intraday panel:
+Refresh the current S&P 500 constituents and download the rolling Yahoo Finance intraday panel:
 
 ```sh
-python3 scripts/fetch_yfinance.py --output data/intraday.csv --period 60d --interval 5m
+python3 scripts/refresh_sp500_universe.py --output data/sp500_universe.csv
+python3 scripts/fetch_yfinance.py --universe data/sp500_universe.csv --output data/intraday.csv --period 5d --interval 5m --batch-size 50
 ```
 
 Outputs:
@@ -70,9 +71,13 @@ Before enabling it:
 3. Create a repository secret named `DISCORD_WEBHOOK_URL` containing your Discord webhook URL.
 4. Open **Actions → Hourly residual-alpha report → Run workflow** to test it manually.
 
-The workflow checks New York time and performs scheduled data downloads only on weekdays between 9:30 a.m. and 3:55 p.m. Eastern. Runs occur near 47 minutes past each hour, producing about seven reports on a normal market day. Manual workflow runs bypass the time gate. Each active run installs the project, runs the tests, downloads a fresh rolling 60-day five-minute panel from Yahoo Finance, runs the backtest, and sends summary metrics plus the five largest long and short residual candidates to Discord. It retains output artifacts for 14 days. A failed run produces a separate Discord alert when the webhook is configured.
+The workflow checks New York time and performs scheduled data downloads only on weekdays between 9:30 a.m. and 3:55 p.m. Eastern. Runs occur near 47 minutes past each hour, producing about seven reports on a normal market day. Manual workflow runs bypass the time gate. Each active run installs the project, runs the tests, refreshes the current S&P 500 constituents and GICS sectors, downloads five days of five-minute data from Yahoo Finance in batches of 50, runs the backtest, and sends summary metrics plus the five largest long and short residual candidates to Discord. It retains output artifacts for 14 days. A failed run produces a separate Discord alert when the webhook is configured.
 
-Market data is intentionally not committed: `data/*.csv` is ignored to avoid publishing downloaded datasets. The default 30-stock universe lives in `config/universe.csv` and can be edited through a normal pull request.
+Market data and the refreshed S&P 500 snapshot are intentionally not committed: `data/*.csv` is ignored to avoid publishing downloaded datasets. The original 30-stock universe remains in `config/universe.csv` as a small local smoke-test fallback.
+
+The hourly signal window is five trading days because the active model needs only 60 bars for beta estimation and 30 bars for residual normalization. This controls runtime and Yahoo request volume. It is not a substitute for a long-history, point-in-time constituent backtest: the refreshed list contains current constituents and would introduce survivorship bias if treated as a historical universe.
+
+Every current constituent is requested, but a stock is excluded from that run if Yahoo omits it or its five-minute series fails the completeness check. Discord reports the number actually evaluated. This preserves signal integrity instead of manufacturing prices for the sake of claiming exactly 500 usable stocks.
 
 Yahoo Finance data is used only for personal research and educational purposes. yfinance is an unofficial client, and an hourly run may fail because of upstream availability or rate limiting. No order is submitted when data is missing or incomplete.
 

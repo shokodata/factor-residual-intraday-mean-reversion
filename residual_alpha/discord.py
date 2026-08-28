@@ -32,6 +32,12 @@ def format_metrics(
     if candidate_report:
         lines.append(f"Signal timestamp: `{candidate_report.get('as_of', 'unknown')}`")
         candidates = candidate_report.get("candidates", [])
+        universe_size = candidate_report.get("universe_size")
+        if universe_size is not None:
+            lines.append(
+                f"Universe evaluated: **{universe_size} stocks**; "
+                f"active candidates: **{candidate_report.get('active_candidate_count', len(candidates))}**"
+            )
         longs = [item for item in candidates if item.get("direction") == "LONG"][:5]
         shorts = [item for item in candidates if item.get("direction") == "SHORT"][:5]
         lines.append("\n**Long residual candidates**")

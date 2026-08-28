@@ -34,6 +34,7 @@ class BacktestResult:
     weights: list[dict[str, float]]
     residuals: list[dict[str, float]]
     zscores: list[dict[str, float]]
+    active_signals: list[dict[str, bool]]
     metrics: dict[str, float]
 
 
@@ -90,6 +91,7 @@ def run_backtest(bars: list[Bar], config: BacktestConfig = BacktestConfig()) -> 
     output_weights: list[dict[str, float]] = []
     output_residuals: list[dict[str, float]] = []
     output_zscores: list[dict[str, float]] = []
+    output_active_signals: list[dict[str, bool]] = []
     output_times: list[datetime] = []
     equity = [1.0]
 
@@ -167,6 +169,7 @@ def run_backtest(bars: list[Bar], config: BacktestConfig = BacktestConfig()) -> 
         output_weights.append(new_weights.copy())
         output_residuals.append(current_residuals)
         output_zscores.append(current_zscores)
+        output_active_signals.append({symbol: bool(active[symbol]) for symbol in symbols})
         equity.append(equity[-1] * (1.0 + net_return))
         prior_weights = new_weights
 
@@ -178,5 +181,6 @@ def run_backtest(bars: list[Bar], config: BacktestConfig = BacktestConfig()) -> 
         weights=output_weights,
         residuals=output_residuals,
         zscores=output_zscores,
+        active_signals=output_active_signals,
         metrics=_metrics(output_returns, output_turnover, config.bars_per_year),
     )

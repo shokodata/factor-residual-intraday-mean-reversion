@@ -40,9 +40,13 @@ jobs:
         if: ${{ github.event_name == 'workflow_dispatch' || steps.market_window.outputs.active == 'true' }}
         run: python -m unittest discover -s tests -v
 
+      - name: Refresh current S&P 500 universe
+        if: ${{ github.event_name == 'workflow_dispatch' || steps.market_window.outputs.active == 'true' }}
+        run: python scripts/refresh_sp500_universe.py --output data/sp500_universe.csv
+
       - name: Download rolling intraday data
         if: ${{ github.event_name == 'workflow_dispatch' || steps.market_window.outputs.active == 'true' }}
-        run: python scripts/fetch_yfinance.py --output data/intraday.csv --period 60d --interval 5m
+        run: python scripts/fetch_yfinance.py --universe data/sp500_universe.csv --output data/intraday.csv --period 5d --interval 5m --batch-size 50
 
       - name: Run factor-residual backtest
         if: ${{ github.event_name == 'workflow_dispatch' || steps.market_window.outputs.active == 'true' }}

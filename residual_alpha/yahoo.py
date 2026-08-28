@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import csv
 from pathlib import Path
+from time import sleep
 
 
 def read_universe(path: str | Path) -> dict[str, str]:
@@ -30,6 +31,7 @@ def download_bars(
     output_path: str | Path,
     period: str = "60d",
     interval: str = "5m",
+    batch_size: int = 50,
 ) -> tuple[int, int]:
     """Download a complete adjusted-close panel and write engine-format CSV."""
     try:
@@ -39,29 +41,48 @@ def download_bars(
 
     universe = read_universe(universe_path)
     symbols = list(universe)
-    frame = yf.download(
-        symbols,
-        period=period,
-        interval=interval,
-        auto_adjust=True,
-        prepost=False,
-        group_by="column",
-        threads=True,
-        progress=False,
-        timeout=30,
-    )
-    if frame.empty:
-        raise RuntimeError("Yahoo Finance returned no data")
-    closes = frame["Close"]
-    if getattr(closes, "ndim", 1) != 2:
-        raise RuntimeError("Yahoo Finance returned an unexpected close-price layout")
-    missing_symbols = set(symbols) - set(closes.columns)
-    if missing_symbols:
-        raise RuntimeError(f"Yahoo Finance omitted symbols: {sorted(missing_symbols)}")
+    if batch_size < 10 or batch_size > 100:
+        raise ValueError("batch_size must be between 10 and 100")
+    close_batches = []
+    for start in range(0, len(symbols), batch_size):
+        batch = symbols[start : start + batch_size]
+        frame = yf.download(
+            batch,
+            period=period,
+            interval=interval,
+            auto_adjust=True,
+            prepost=False,
+            group_by="column",
+            threads=True,
+            progress=False,
+            timeout=30,
+        )
+        if frame.empty or "Close" not in frame:
+            raise RuntimeError(f"Yahoo Finance returned no data for batch starting {batch[0]}")
+        closes = frame["Close"]
+        if getattr(closes, "ndim", 1) != 2:
+            raise RuntimeError("Yahoo Finance returned an unexpected close-price layout")
+        close_batches.append(closes)
+        if start + batch_size < len(symbols):
+            sleep(0.4)
 
-    # The backtester requires a synchronous panel. Keeping only timestamps with
-    # every symbol avoids forward-filling stale prices into alpha signals.
+    import pandas as pd
+
+    closes = pd.concat(close_batches, axis=1)
+    closes = closes.loc[:, ~closes.columns.duplicated()]
+    returned = [symbol for symbol in symbols if symbol in closes.columns]
+    if len(returned) < max(10, int(len(symbols) * 0.95)):
+        raise RuntimeError(f"Yahoo Finance returned only {len(returned)} of {len(symbols)} symbols")
+    closes = closes[returned].sort_index()
+
+    # Fill at most one isolated five-minute gap, then retain only stocks with a
+    # complete synchronous panel. Broad or current missingness is never filled.
+    closes = closes.groupby(closes.index.date).ffill(limit=1)
+    closes = closes.dropna(axis=1, how="any")
+    symbols = [symbol for symbol in symbols if symbol in closes.columns]
     closes = closes[symbols].dropna(how="any")
+    if len(symbols) < int(len(universe) * 0.90):
+        raise RuntimeError(f"only {len(symbols)} of {len(universe)} symbols passed completeness checks")
     if len(closes) < 100:
         raise RuntimeError(f"only {len(closes)} complete bars were returned")
 
@@ -75,4 +96,3 @@ def download_bars(
             for symbol in symbols:
                 writer.writerow([iso_timestamp, symbol, f"{float(row[symbol]):.8f}", universe[symbol]])
     return len(closes), len(symbols)
-

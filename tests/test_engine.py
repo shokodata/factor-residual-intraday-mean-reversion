@@ -13,6 +13,7 @@ from residual_alpha.linalg import neutralize
 from residual_alpha.synthetic import generate
 from residual_alpha.yahoo import read_universe
 from scripts.check_market_window import is_research_window
+from scripts.refresh_sp500_universe import yahoo_symbol
 
 
 class LinearAlgebraTests(unittest.TestCase):
@@ -56,6 +57,8 @@ class DiscordTests(unittest.TestCase):
             {"total_return": 0.01},
             candidate_report={
                 "as_of": "2026-08-27T15:55:00-04:00",
+                "universe_size": 500,
+                "active_candidate_count": 2,
                 "candidates": [
                     {"symbol": "AAA", "direction": "LONG", "target_weight": 0.08, "residual_zscore": -2.1},
                     {"symbol": "BBB", "direction": "SHORT", "target_weight": -0.07, "residual_zscore": 1.9},
@@ -66,6 +69,7 @@ class DiscordTests(unittest.TestCase):
         self.assertIn("**AAA**", report)
         self.assertIn("**BBB**", report)
         self.assertIn("-2.10", report)
+        self.assertIn("500 stocks", report)
 
 
 class YahooAdapterTests(unittest.TestCase):
@@ -73,6 +77,10 @@ class YahooAdapterTests(unittest.TestCase):
         universe = read_universe("config/universe.csv")
         self.assertEqual(len(universe), 30)
         self.assertGreaterEqual(len(set(universe.values())), 5)
+
+    def test_sp500_symbol_conversion(self) -> None:
+        self.assertEqual(yahoo_symbol("BRK.B"), "BRK-B")
+        self.assertEqual(yahoo_symbol("bf.b"), "BF-B")
 
 
 class MarketWindowTests(unittest.TestCase):
