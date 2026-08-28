@@ -48,6 +48,22 @@ class DiscordTests(unittest.TestCase):
         self.assertIn("1.25", report)
         self.assertIn("owner/repository", report)
 
+    def test_report_includes_ranked_candidates(self) -> None:
+        report = format_metrics(
+            {"total_return": 0.01},
+            candidate_report={
+                "as_of": "2026-08-27T15:55:00-04:00",
+                "candidates": [
+                    {"symbol": "AAA", "direction": "LONG", "target_weight": 0.08, "residual_zscore": -2.1},
+                    {"symbol": "BBB", "direction": "SHORT", "target_weight": -0.07, "residual_zscore": 1.9},
+                ],
+            },
+        )
+        self.assertIn("Long residual candidates", report)
+        self.assertIn("**AAA**", report)
+        self.assertIn("**BBB**", report)
+        self.assertIn("-2.10", report)
+
 
 class YahooAdapterTests(unittest.TestCase):
     def test_default_universe_is_diversified(self) -> None:

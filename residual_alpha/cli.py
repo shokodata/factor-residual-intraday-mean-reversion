@@ -58,9 +58,37 @@ def main() -> None:
         writer.writerow(["timestamp", "symbol", "weight"])
         for timestamp, weights in zip(result.timestamps, result.weights):
             writer.writerows((timestamp, symbol, weight) for symbol, weight in weights.items())
+    latest_weights = result.weights[-1] if result.weights else {}
+    latest_zscores = result.zscores[-1] if result.zscores else {}
+    candidates = [
+        {
+            "symbol": symbol,
+            "direction": "LONG" if weight > 0 else "SHORT",
+            "target_weight": weight,
+            "residual_zscore": latest_zscores.get(symbol, 0.0),
+        }
+        for symbol, weight in latest_weights.items()
+        if abs(weight) > 1e-8
+    ]
+    candidates.sort(key=lambda item: abs(item["target_weight"]), reverse=True)
+    with (output / "candidates.json").open("w", encoding="utf-8") as handle:
+        json.dump(
+            {
+                "as_of": result.timestamps[-1].isoformat() if result.timestamps else None,
+                "candidates": candidates,
+            },
+            handle,
+            indent=2,
+        )
+    with (output / "latest_signals.csv").open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.DictWriter(
+            handle,
+            fieldnames=["symbol", "direction", "target_weight", "residual_zscore"],
+        )
+        writer.writeheader()
+        writer.writerows(candidates)
     print(json.dumps(result.metrics, indent=2))
 
 
 if __name__ == "__main__":
     main()
-

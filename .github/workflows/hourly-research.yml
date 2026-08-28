@@ -42,7 +42,7 @@ jobs:
 
       - name: Send metrics to Discord
         if: ${{ env.DISCORD_WEBHOOK_URL != '' }}
-        run: python scripts/notify_discord.py hourly-results/metrics.json
+        run: python scripts/notify_discord.py hourly-results/metrics.json --candidates hourly-results/candidates.json
 
       - name: Send failure alert to Discord
         if: ${{ failure() && env.DISCORD_WEBHOOK_URL != '' }}

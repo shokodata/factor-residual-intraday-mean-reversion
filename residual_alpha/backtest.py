@@ -33,6 +33,7 @@ class BacktestResult:
     turnover: list[float]
     weights: list[dict[str, float]]
     residuals: list[dict[str, float]]
+    zscores: list[dict[str, float]]
     metrics: dict[str, float]
 
 
@@ -88,6 +89,7 @@ def run_backtest(bars: list[Bar], config: BacktestConfig = BacktestConfig()) -> 
     output_turnover: list[float] = []
     output_weights: list[dict[str, float]] = []
     output_residuals: list[dict[str, float]] = []
+    output_zscores: list[dict[str, float]] = []
     output_times: list[datetime] = []
     equity = [1.0]
 
@@ -106,6 +108,7 @@ def run_backtest(bars: list[Bar], config: BacktestConfig = BacktestConfig()) -> 
         # Positions chosen after the previous bar earn the current bar return.
         gross_pnl = sum(prior_weights[s] * simple_returns[s] for s in symbols)
         current_residuals: dict[str, float] = {}
+        current_zscores: dict[str, float] = {}
         betas: dict[str, list[float]] = {}
         raw: dict[str, float] = {}
 
@@ -121,6 +124,7 @@ def run_backtest(bars: list[Bar], config: BacktestConfig = BacktestConfig()) -> 
                 history = list(residual_history[symbol])
                 scale = _sample_std(history)
                 z_score = (residual - _mean(history)) / scale if scale else 0.0
+                current_zscores[symbol] = z_score
                 if active[symbol] and abs(z_score) <= config.exit_z:
                     active[symbol] = False
                 elif not active[symbol] and abs(z_score) >= config.entry_z:
@@ -162,6 +166,7 @@ def run_backtest(bars: list[Bar], config: BacktestConfig = BacktestConfig()) -> 
         output_turnover.append(turnover)
         output_weights.append(new_weights.copy())
         output_residuals.append(current_residuals)
+        output_zscores.append(current_zscores)
         equity.append(equity[-1] * (1.0 + net_return))
         prior_weights = new_weights
 
@@ -172,6 +177,6 @@ def run_backtest(bars: list[Bar], config: BacktestConfig = BacktestConfig()) -> 
         turnover=output_turnover,
         weights=output_weights,
         residuals=output_residuals,
+        zscores=output_zscores,
         metrics=_metrics(output_returns, output_turnover, config.bars_per_year),
     )
-

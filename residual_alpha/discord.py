@@ -8,7 +8,11 @@ import urllib.request
 from pathlib import Path
 
 
-def format_metrics(metrics: dict[str, float], repository: str = "") -> str:
+def format_metrics(
+    metrics: dict[str, float],
+    repository: str = "",
+    candidate_report: dict | None = None,
+) -> str:
     labels = (
         ("total_return", "Total return", "%"),
         ("sharpe", "Sharpe", "number"),
@@ -25,8 +29,24 @@ def format_metrics(metrics: dict[str, float], repository: str = "") -> str:
         value = metrics[key]
         rendered = f"{value:.2%}" if style == "%" else f"{value:.2f}"
         lines.append(f"{label}: **{rendered}**")
-    lines.append("Research output only — not a live-trading instruction.")
+    if candidate_report:
+        lines.append(f"Signal timestamp: `{candidate_report.get('as_of', 'unknown')}`")
+        candidates = candidate_report.get("candidates", [])
+        longs = [item for item in candidates if item.get("direction") == "LONG"][:5]
+        shorts = [item for item in candidates if item.get("direction") == "SHORT"][:5]
+        lines.append("\n**Long residual candidates**")
+        lines.extend(_candidate_line(item) for item in longs) if longs else lines.append("None")
+        lines.append("\n**Short residual candidates**")
+        lines.extend(_candidate_line(item) for item in shorts) if shorts else lines.append("None")
+    lines.append("\nResearch signal only — not a prediction or trade recommendation.")
     return "\n".join(lines)
+
+
+def _candidate_line(candidate: dict) -> str:
+    return (
+        f"• **{candidate['symbol']}** — residual z `{candidate['residual_zscore']:+.2f}`, "
+        f"neutral target `{candidate['target_weight']:+.1%}`"
+    )
 
 
 def post_webhook(webhook_url: str, content: str) -> None:
@@ -44,11 +64,17 @@ def post_webhook(webhook_url: str, content: str) -> None:
             raise RuntimeError(f"Discord returned HTTP {response.status}")
 
 
-def notify_from_file(metrics_path: str | Path) -> None:
+def notify_from_file(metrics_path: str | Path, candidates_path: str | Path | None = None) -> None:
     webhook_url = os.environ.get("DISCORD_WEBHOOK_URL")
     if not webhook_url:
         raise RuntimeError("DISCORD_WEBHOOK_URL is not configured")
     with Path(metrics_path).open(encoding="utf-8") as handle:
         metrics = json.load(handle)
-    post_webhook(webhook_url, format_metrics(metrics, os.environ.get("GITHUB_REPOSITORY", "")))
-
+    candidate_report = None
+    if candidates_path:
+        with Path(candidates_path).open(encoding="utf-8") as handle:
+            candidate_report = json.load(handle)
+    post_webhook(
+        webhook_url,
+        format_metrics(metrics, os.environ.get("GITHUB_REPOSITORY", ""), candidate_report),
+    )
