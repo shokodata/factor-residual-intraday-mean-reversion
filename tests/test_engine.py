@@ -2,7 +2,9 @@ from __future__ import annotations
 
 import tempfile
 import unittest
+from datetime import datetime
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 from residual_alpha.backtest import BacktestConfig, run_backtest
 from residual_alpha.data import read_bars
@@ -10,6 +12,7 @@ from residual_alpha.discord import format_metrics
 from residual_alpha.linalg import neutralize
 from residual_alpha.synthetic import generate
 from residual_alpha.yahoo import read_universe
+from scripts.check_market_window import is_research_window
 
 
 class LinearAlgebraTests(unittest.TestCase):
@@ -70,6 +73,17 @@ class YahooAdapterTests(unittest.TestCase):
         universe = read_universe("config/universe.csv")
         self.assertEqual(len(universe), 30)
         self.assertGreaterEqual(len(set(universe.values())), 5)
+
+
+class MarketWindowTests(unittest.TestCase):
+    def test_weekday_session_is_active(self) -> None:
+        eastern = ZoneInfo("America/New_York")
+        self.assertTrue(is_research_window(datetime(2026, 8, 27, 10, 47, tzinfo=eastern)))
+        self.assertFalse(is_research_window(datetime(2026, 8, 27, 16, 0, tzinfo=eastern)))
+
+    def test_weekend_is_inactive(self) -> None:
+        eastern = ZoneInfo("America/New_York")
+        self.assertFalse(is_research_window(datetime(2026, 8, 29, 10, 47, tzinfo=eastern)))
 
 
 if __name__ == "__main__":

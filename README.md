@@ -70,7 +70,7 @@ Before enabling it:
 3. Create a repository secret named `DISCORD_WEBHOOK_URL` containing your Discord webhook URL.
 4. Open **Actions → Hourly residual-alpha report → Run workflow** to test it manually.
 
-The workflow installs the project, runs the tests, downloads a fresh rolling 60-day five-minute panel from Yahoo Finance, runs the backtest, and sends summary metrics plus the five largest long and short residual candidates to Discord. It retains output artifacts for 14 days. A failed run produces a separate Discord alert when the webhook is configured.
+The workflow checks New York time and performs scheduled data downloads only on weekdays between 9:30 a.m. and 3:55 p.m. Eastern. Runs occur near 47 minutes past each hour, producing about seven reports on a normal market day. Manual workflow runs bypass the time gate. Each active run installs the project, runs the tests, downloads a fresh rolling 60-day five-minute panel from Yahoo Finance, runs the backtest, and sends summary metrics plus the five largest long and short residual candidates to Discord. It retains output artifacts for 14 days. A failed run produces a separate Discord alert when the webhook is configured.
 
 Market data is intentionally not committed: `data/*.csv` is ignored to avoid publishing downloaded datasets. The default 30-stock universe lives in `config/universe.csv` and can be edited through a normal pull request.
 

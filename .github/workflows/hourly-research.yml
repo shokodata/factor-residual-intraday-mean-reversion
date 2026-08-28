@@ -2,7 +2,7 @@ name: Hourly residual-alpha report
 
 on:
   schedule:
-    - cron: "17 * * * *"
+    - cron: "47 * * * 1-5"
   workflow_dispatch:
 
 permissions:
@@ -28,20 +28,28 @@ jobs:
           python-version: "3.12"
           cache: pip
 
+      - name: Check regular-session research window
+        id: market_window
+        run: python scripts/check_market_window.py
+
       - name: Install project
+        if: ${{ github.event_name == 'workflow_dispatch' || steps.market_window.outputs.active == 'true' }}
         run: python -m pip install .
 
       - name: Run test suite
+        if: ${{ github.event_name == 'workflow_dispatch' || steps.market_window.outputs.active == 'true' }}
         run: python -m unittest discover -s tests -v
 
       - name: Download rolling intraday data
+        if: ${{ github.event_name == 'workflow_dispatch' || steps.market_window.outputs.active == 'true' }}
         run: python scripts/fetch_yfinance.py --output data/intraday.csv --period 60d --interval 5m
 
       - name: Run factor-residual backtest
+        if: ${{ github.event_name == 'workflow_dispatch' || steps.market_window.outputs.active == 'true' }}
         run: python -m residual_alpha.cli backtest data/intraday.csv --output hourly-results
 
       - name: Send metrics to Discord
-        if: ${{ env.DISCORD_WEBHOOK_URL != '' }}
+        if: ${{ (github.event_name == 'workflow_dispatch' || steps.market_window.outputs.active == 'true') && env.DISCORD_WEBHOOK_URL != '' }}
         run: python scripts/notify_discord.py hourly-results/metrics.json --candidates hourly-results/candidates.json
 
       - name: Send failure alert to Discord
@@ -49,7 +57,7 @@ jobs:
         run: python scripts/notify_failure.py
 
       - name: Save research artifacts
-        if: ${{ always() }}
+        if: ${{ always() && (github.event_name == 'workflow_dispatch' || steps.market_window.outputs.active == 'true') }}
         uses: actions/upload-artifact@v4
         with:
           name: residual-alpha-${{ github.run_id }}
