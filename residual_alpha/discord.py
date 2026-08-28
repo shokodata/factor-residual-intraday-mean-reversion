@@ -129,6 +129,18 @@ def format_single_report(report: dict, repository: str = "") -> str:
             )
     else:
         lines.append("No qualifying position is open. Do not force a trade.")
+
+    featured_symbol = trade.get("symbol") if trade else None
+    watchlist = [
+        candidate
+        for candidate in report.get("latest_candidates", [])
+        if candidate.get("symbol") != featured_symbol
+    ][:5]
+    lines.append("\n**Ranked watchlist — alternatives, not tracked trades**")
+    if watchlist:
+        lines.extend(_single_watchlist_line(candidate, rank) for rank, candidate in enumerate(watchlist, 1))
+    else:
+        lines.append("No additional candidates currently meet the entry threshold.")
     lines.extend(
         [
             "Exit checks: hourly convergence, 120 minutes, widening by 1.5 z, or close by 3:50 p.m. ET.",
@@ -137,6 +149,16 @@ def format_single_report(report: dict, repository: str = "") -> str:
         ]
     )
     return "\n".join(lines)
+
+
+def _single_watchlist_line(candidate: dict, rank: int) -> str:
+    return (
+        f"{rank}. **{candidate['direction']} {candidate['symbol']}** — z "
+        f"`{candidate['residual_zscore']:+.2f}`, stock `{abs(candidate['stock_weight']):.1%}`; "
+        f"hedges `{_side(candidate['spy_weight'])} SPY {abs(candidate['spy_weight']):.1%}` + "
+        f"`{_side(candidate['sector_etf_weight'])} {candidate['sector_etf']} "
+        f"{abs(candidate['sector_etf_weight']):.1%}`"
+    )
 
 
 def notify_single_report(report_path: str | Path) -> None:
