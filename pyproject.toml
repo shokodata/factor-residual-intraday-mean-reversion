@@ -5,12 +5,12 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "residual-alpha"
 version = "0.1.0"
-description = "Dependency-free intraday factor-residual mean-reversion research engine"
+description = "Intraday factor-residual mean-reversion research engine"
 requires-python = ">=3.11"
+dependencies = ["yfinance>=0.2.65,<2"]
 
 [project.scripts]
 residual-alpha = "residual_alpha.cli:main"
 
 [tool.setuptools.packages.find]
 include = ["residual_alpha*"]
-

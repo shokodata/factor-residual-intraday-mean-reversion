@@ -9,6 +9,7 @@ from residual_alpha.data import read_bars
 from residual_alpha.discord import format_metrics
 from residual_alpha.linalg import neutralize
 from residual_alpha.synthetic import generate
+from residual_alpha.yahoo import read_universe
 
 
 class LinearAlgebraTests(unittest.TestCase):
@@ -46,6 +47,13 @@ class DiscordTests(unittest.TestCase):
         self.assertIn("1.23%", report)
         self.assertIn("1.25", report)
         self.assertIn("owner/repository", report)
+
+
+class YahooAdapterTests(unittest.TestCase):
+    def test_default_universe_is_diversified(self) -> None:
+        universe = read_universe("config/universe.csv")
+        self.assertEqual(len(universe), 30)
+        self.assertGreaterEqual(len(set(universe.values())), 5)
 
 
 if __name__ == "__main__":

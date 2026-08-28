@@ -1,6 +1,6 @@
 # Residual Alpha
 
-A dependency-free research engine for intraday factor-residual mean reversion. It estimates each stock's expected return from contemporaneous market and sector factors, trades extreme residuals, and projects the resulting portfolio away from dollar, market-beta, and sector-beta exposures.
+A research engine for intraday factor-residual mean reversion. It estimates each stock's expected return from contemporaneous market and sector factors, trades extreme residuals, and projects the resulting portfolio away from dollar, market-beta, and sector-beta exposures.
 
 This is a backtesting and paper-trading research tool, not live order-routing software.
 
@@ -31,11 +31,18 @@ All symbols must have a price at every timestamp in this initial version. Use sp
 
 ## Quick start
 
-Run directly from the repository without installing anything:
+Install the project and run it:
 
 ```sh
+python3 -m pip install .
 python3 -m residual_alpha.cli generate-demo demo.csv --bars 500
 python3 -m residual_alpha.cli backtest demo.csv --output results
+```
+
+Download the current rolling Yahoo Finance intraday panel:
+
+```sh
+python3 scripts/fetch_yfinance.py --output data/intraday.csv --period 60d --interval 5m
 ```
 
 Outputs:
@@ -59,12 +66,13 @@ Before enabling it:
 1. Push this directory to a GitHub repository.
 2. In the repository, open **Settings → Secrets and variables → Actions**.
 3. Create a repository secret named `DISCORD_WEBHOOK_URL` containing your Discord webhook URL.
-4. Arrange for a fresh, complete input file to exist at `data/intraday.csv` before each run, or replace the input step with your market-data download command.
-5. Open **Actions → Hourly residual-alpha report → Run workflow** to test it manually.
+4. Open **Actions → Hourly residual-alpha report → Run workflow** to test it manually.
 
-The workflow runs the tests, validates that real input data exists, runs the backtest, sends summary metrics to Discord, and retains output artifacts for 14 days. A failed run produces a separate Discord alert when the webhook is configured.
+The workflow installs the project, runs the tests, downloads a fresh rolling 60-day five-minute panel from Yahoo Finance, runs the backtest, sends summary metrics to Discord, and retains output artifacts for 14 days. A failed run produces a separate Discord alert when the webhook is configured.
 
-Market data is intentionally not committed: `data/*.csv` is ignored to avoid publishing licensed or sensitive datasets. For production, retrieve it during the workflow from a provider using a GitHub secret rather than storing credentials in code.
+Market data is intentionally not committed: `data/*.csv` is ignored to avoid publishing downloaded datasets. The default 30-stock universe lives in `config/universe.csv` and can be edited through a normal pull request.
+
+Yahoo Finance data is used only for personal research and educational purposes. yfinance is an unofficial client, and an hourly run may fail because of upstream availability or rate limiting. No order is submitted when data is missing or incomplete.
 
 ## Controls that should precede live deployment
 
