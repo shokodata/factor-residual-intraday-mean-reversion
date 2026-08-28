@@ -109,11 +109,26 @@ class DiscordTests(unittest.TestCase):
                         "sector_etf_weight": 0.3, "entry_time": "2026-08-28T12:10:00-04:00",
                     },
                 },
+                "latest_candidates": [
+                    {
+                        "symbol": "AAA", "direction": "SHORT", "residual_zscore": 2.2,
+                        "stock_weight": -0.6, "spy_weight": -0.1,
+                        "sector_etf": "XLK", "sector_etf_weight": 0.3,
+                    },
+                    {
+                        "symbol": "BBB", "direction": "LONG", "residual_zscore": -1.9,
+                        "stock_weight": 0.55, "spy_weight": -0.25,
+                        "sector_etf": "XLK", "sector_etf_weight": -0.2,
+                    },
+                ],
             }
         )
         self.assertIn("Current action: HOLD", report)
         self.assertIn("55 minutes", report)
         self.assertIn("SHORT AAA", report)
+        self.assertIn("Ranked watchlist", report)
+        self.assertIn("LONG BBB", report)
+        self.assertNotIn("1. **SHORT AAA**", report)
 
 
 class YahooAdapterTests(unittest.TestCase):
