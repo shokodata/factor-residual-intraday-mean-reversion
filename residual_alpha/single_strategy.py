@@ -203,14 +203,12 @@ def run_single_strategy(
                 closed_this_bar = True
 
         candidates: list[dict[str, Any]] = []
-        if (
-            not position
-            and not closed_this_bar
-            and decision_bar
+        scan_window = (
+            decision_bar
             and local_timestamp.weekday() < 5
             and config.entry_start <= local_timestamp.time() <= config.entry_end
-            and entries_by_date.get(local_timestamp.date(), 0) < config.maximum_entries_per_day
-        ):
+        )
+        if scan_window:
             for symbol, zscore in current_zscores.items():
                 if not config.entry_z <= abs(zscore) <= config.maximum_entry_z:
                     continue
@@ -231,6 +229,14 @@ def run_single_strategy(
                     }
                 )
             candidates.sort(key=lambda item: abs(item["residual_zscore"]), reverse=True)
+            latest_candidates = candidates
+
+        if (
+            not position
+            and not closed_this_bar
+            and scan_window
+            and entries_by_date.get(local_timestamp.date(), 0) < config.maximum_entries_per_day
+        ):
             if candidates:
                 candidate = candidates[0]
                 position = Trade(
@@ -269,7 +275,6 @@ def run_single_strategy(
         if event:
             last_event = event
         bar_returns.append(pnl)
-        latest_candidates = candidates
         latest_zscores = current_zscores
         latest_betas = current_betas
 
