@@ -81,6 +81,8 @@ The hourly signal window is five trading days because the active model needs onl
 
 Every current constituent is requested, but a stock is excluded from that run if Yahoo omits it or its five-minute series fails the completeness check. Discord reports the number actually evaluated. This preserves signal integrity instead of manufacturing prices for the sake of claiming exactly 500 usable stocks.
 
+The newest Yahoo interval is discarded before modeling because it may still be forming. Candidate signals therefore use the most recently completed five-minute bar rather than a partial bar whose tiny return could suppress every entry signal.
+
 Yahoo Finance data is used only for personal research and educational purposes. yfinance is an unofficial client, and an hourly run may fail because of upstream availability or rate limiting. No order is submitted when data is missing or incomplete.
 
 ## Controls that should precede live deployment

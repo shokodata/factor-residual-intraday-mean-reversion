@@ -74,6 +74,11 @@ def download_bars(
     if len(returned) < max(10, int(len(symbols) * 0.95)):
         raise RuntimeError(f"Yahoo Finance returned only {len(returned)} of {len(symbols)} symbols")
     closes = closes[returned].sort_index()
+    if len(closes) < 2:
+        raise RuntimeError("Yahoo Finance returned too few timestamps")
+    # Yahoo can expose the currently forming interval (and occasionally label it
+    # with the interval end). Never generate an entry from a partial final bar.
+    closes = closes.iloc[:-1]
 
     # Fill at most one isolated five-minute gap, then retain only stocks with a
     # complete synchronous panel. Broad or current missingness is never filled.

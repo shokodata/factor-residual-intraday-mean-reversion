@@ -106,3 +106,4 @@ def notify_from_file(metrics_path: str | Path, candidates_path: str | Path | Non
         webhook_url,
         format_metrics(metrics, os.environ.get("GITHUB_REPOSITORY", ""), candidate_report),
     )
+    print("Discord report delivered successfully")
