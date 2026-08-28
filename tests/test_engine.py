@@ -59,6 +59,16 @@ class DiscordTests(unittest.TestCase):
                 "as_of": "2026-08-27T15:55:00-04:00",
                 "universe_size": 500,
                 "active_candidate_count": 2,
+                "featured_candidate": {
+                    "symbol": "AAA",
+                    "direction": "LONG",
+                    "target_weight": 0.08,
+                    "residual_zscore": -2.1,
+                    "status": "PAPER ENTRY WINDOW",
+                    "market_hedge": {"symbol": "SPY", "target_weight": -0.05},
+                    "sector_hedge": {"symbol": "XLK", "target_weight": -0.03},
+                    "required_manual_check": "Check current company news and earnings before any paper entry.",
+                },
                 "candidates": [
                     {"symbol": "AAA", "direction": "LONG", "target_weight": 0.08, "residual_zscore": -2.1},
                     {"symbol": "BBB", "direction": "SHORT", "target_weight": -0.07, "residual_zscore": 1.9},
@@ -70,6 +80,9 @@ class DiscordTests(unittest.TestCase):
         self.assertIn("**BBB**", report)
         self.assertIn("-2.10", report)
         self.assertIn("500 stocks", report)
+        self.assertIn("Featured single-name paper setup", report)
+        self.assertIn("SHORT SPY", report)
+        self.assertIn("120 minutes", report)
 
 
 class YahooAdapterTests(unittest.TestCase):

@@ -38,6 +38,24 @@ def format_metrics(
                 f"Universe evaluated: **{universe_size} stocks**; "
                 f"active candidates: **{candidate_report.get('active_candidate_count', len(candidates))}**"
             )
+        featured = candidate_report.get("featured_candidate")
+        if featured:
+            market_hedge = featured["market_hedge"]
+            sector_hedge = featured["sector_hedge"]
+            lines.extend(
+                [
+                    "\n**Featured single-name paper setup**",
+                    f"Status: **{featured['status']}**",
+                    f"Stock: **{featured['direction']} {featured['symbol']}** — residual z "
+                    f"`{featured['residual_zscore']:+.2f}`, target `{featured['target_weight']:+.1%}`",
+                    f"Estimated hedges: **{_side(market_hedge['target_weight'])} {market_hedge['symbol']}** "
+                    f"`{abs(market_hedge['target_weight']):.1%}` and "
+                    f"**{_side(sector_hedge['target_weight'])} {sector_hedge['symbol']}** "
+                    f"`{abs(sector_hedge['target_weight']):.1%}`",
+                    "Exit: residual `|z| ≤ 0.35`, after **120 minutes**, or by **3:50 p.m. ET**—whichever comes first.",
+                    f"Safety check: **{featured['required_manual_check']}**",
+                ]
+            )
         longs = [item for item in candidates if item.get("direction") == "LONG"][:5]
         shorts = [item for item in candidates if item.get("direction") == "SHORT"][:5]
         lines.append("\n**Long residual candidates**")
@@ -53,6 +71,10 @@ def _candidate_line(candidate: dict) -> str:
         f"• **{candidate['symbol']}** — residual z `{candidate['residual_zscore']:+.2f}`, "
         f"neutral target `{candidate['target_weight']:+.1%}`"
     )
+
+
+def _side(weight: float) -> str:
+    return "LONG" if weight >= 0 else "SHORT"
 
 
 def post_webhook(webhook_url: str, content: str) -> None:

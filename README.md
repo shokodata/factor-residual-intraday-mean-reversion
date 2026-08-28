@@ -54,6 +54,8 @@ Outputs:
 - `candidates.json`: latest ranked long/short model candidates for automation
 - `latest_signals.csv`: human-readable latest candidates, residual z-scores, and neutral weights
 
+Discord also highlights one single-name paper setup selected from current entry-threshold candidates. Signals beyond an absolute z-score of 5 are excluded from that featured slot as potential event or data outliers. The setup includes approximate SPY and sector-ETF hedges derived from the model coefficients, permits new paper entries only from 10:00 a.m. through 2:30 p.m. Eastern, and states convergence, 120-minute, and 3:50 p.m. exits. Yahoo is not a dependable real-time news/earnings safety source, so the report requires a manual company-news and earnings check before entry.
+
 Run the tests:
 
 ```sh
