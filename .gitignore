@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.env
+AGENTS.md
+demo.csv
+results/
+hourly-results/
+data/*.csv
+!data/.gitkeep

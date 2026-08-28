@@ -1,0 +1,54 @@
+name: Hourly residual-alpha report
+
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hourly-residual-alpha
+  cancel-in-progress: true
+
+jobs:
+  research-report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run test suite
+        run: python -m unittest discover -s tests -v
+
+      - name: Require current intraday input
+        run: test -s data/intraday.csv
+
+      - name: Run factor-residual backtest
+        run: python -m residual_alpha.cli backtest data/intraday.csv --output hourly-results
+
+      - name: Send metrics to Discord
+        run: python scripts/notify_discord.py hourly-results/metrics.json
+
+      - name: Send failure alert to Discord
+        if: ${{ failure() && env.DISCORD_WEBHOOK_URL != '' }}
+        run: python scripts/notify_failure.py
+
+      - name: Save research artifacts
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: residual-alpha-${{ github.run_id }}
+          path: hourly-results/
+          if-no-files-found: ignore
+          retention-days: 14
+
