@@ -69,8 +69,8 @@ def analyze_levels(rows: list[OHLCV], price: float) -> dict:
     for z in zones:
         z["lower"], z["upper"] = z["center"] - width, z["center"] + width
         z["timeframes"] = sorted(z["timeframes"]); z["kind"] = max(set(z["kinds"]), key=z["kinds"].count); del z["kinds"]
-    support = max((z for z in zones if z["center"] <= price), key=lambda z:z["center"], default=None)
-    resistance = min((z for z in zones if z["center"] >= price), key=lambda z:z["center"], default=None)
+    support = max((z for z in zones if z["kind"] == "SUPPORT" and z["center"] <= price), key=lambda z:z["center"], default=None)
+    resistance = min((z for z in zones if z["kind"] == "RESISTANCE" and z["center"] >= price), key=lambda z:z["center"], default=None)
     return {"status":"READY", "support":support, "resistance":resistance, "zone_width":width}
 
 
@@ -81,8 +81,17 @@ def annotate_candidates(candidates: list[dict], rows: list[OHLCV]) -> list[dict]
         history = by_symbol.get(candidate["symbol"], [])
         if not history: candidate["level_confluence"] = {"status":"INSUFFICIENT_HISTORY"}; continue
         price = history[-1].close; levels = analyze_levels(history, price)
-        relevant = levels.get("support") if candidate["direction"] == "LONG" else levels.get("resistance")
+        is_long = candidate["direction"] == "LONG"
+        relevant = levels.get("support") if is_long else levels.get("resistance")
+        opposing = levels.get("resistance") if is_long else levels.get("support")
         aligned = bool(relevant and relevant["lower"] <= price <= relevant["upper"])
+        target = (opposing["lower"] if is_long else opposing["upper"]) if opposing else None
+        invalidation = None
+        if relevant:
+            invalidation = relevant["lower"] - levels["zone_width"] * .25 if is_long else relevant["upper"] + levels["zone_width"] * .25
+        room = ((target - price) / price if is_long else (price - target) / price) if target else None
         candidate["level_confluence"] = {**levels, "price":price, "aligned":aligned, "relevant_zone":relevant,
+            "reaction_price": relevant["center"] if relevant else None,
+            "target_price": target, "target_room": room, "invalidation_price": invalidation,
             "confluence_score": relevant["score"] if aligned else 0.0}
     return sorted(candidates, key=lambda c:(c["level_confluence"].get("aligned",False), c["level_confluence"].get("confluence_score",0), abs(c["residual_zscore"])), reverse=True)
