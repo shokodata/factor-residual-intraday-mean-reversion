@@ -48,9 +48,13 @@ jobs:
         if: ${{ github.event_name == 'workflow_dispatch' || steps.market_window.outputs.active == 'true' }}
         run: python scripts/fetch_yfinance.py --universe data/sp500_universe.csv --output data/intraday.csv --period 5d --interval 5m --batch-size 50
 
+      - name: Download 14-session level data
+        if: ${{ github.event_name == 'workflow_dispatch' || steps.market_window.outputs.active == 'true' }}
+        run: python scripts/fetch_yfinance.py --universe data/sp500_universe.csv --output data/hourly-levels.csv --period 1mo --interval 1h --batch-size 50 --ohlcv
+
       - name: Run factor-residual backtest
         if: ${{ github.event_name == 'workflow_dispatch' || steps.market_window.outputs.active == 'true' }}
-        run: python -m residual_alpha.cli single-backtest data/intraday.csv --output hourly-results --validation-summary config/validation.json
+        run: python -m residual_alpha.cli single-backtest data/intraday.csv --output hourly-results --validation-summary config/validation.json --levels data/hourly-levels.csv
 
       - name: Send metrics to Discord
         if: ${{ (github.event_name == 'workflow_dispatch' || steps.market_window.outputs.active == 'true') && env.DISCORD_WEBHOOK_URL != '' }}
