@@ -5,7 +5,7 @@ from __future__ import annotations
 import math
 from collections import deque
 from dataclasses import asdict, dataclass
-from datetime import datetime, time
+from datetime import datetime, time, timedelta
 from typing import Any
 from zoneinfo import ZoneInfo
 
@@ -124,12 +124,8 @@ def run_single_strategy(
     if missing_sectors:
         raise ValueError(f"missing sector factor ETFs: {sorted(missing_sectors)}")
 
-    models = {
-        symbol: RollingRidge(config.beta_window, 3, config.ridge) for symbol in stocks
-    }
-    histories = {
-        symbol: deque(maxlen=config.residual_window) for symbol in stocks
-    }
+    models = {symbol: RollingRidge(config.beta_window, 3, config.ridge) for symbol in stocks}
+    histories = {symbol: deque(maxlen=config.residual_window) for symbol in stocks}
     position: Trade | None = None
     position_weights: dict[str, float] = {}
     trades: list[Trade] = []
@@ -139,6 +135,10 @@ def run_single_strategy(
     latest_betas: dict[str, list[float]] = {}
     last_event: dict[str, Any] = {"action": "NO_ENTRY", "reason": "No completed signal"}
     entries_by_date: dict[object, int] = {}
+
+    # Research-only diagnostics. These do not participate in signal selection or trade management.
+    candidate_events: list[dict[str, Any]] = []
+    diagnostic_tracks: list[dict[str, Any]] = []
 
     for index in range(1, len(timestamps)):
         timestamp = timestamps[index]
@@ -161,17 +161,33 @@ def run_single_strategy(
             if len(model) >= config.minimum_beta_observations:
                 coefficients = model.coefficients()
                 residual = returns[symbol] - sum(
-                    coefficient * feature
-                    for coefficient, feature in zip(coefficients, features)
+                    coefficient * feature for coefficient, feature in zip(coefficients, features)
                 )
                 history = list(histories[symbol])
                 scale = _std(history)
-                current_zscores[symbol] = (
-                    (residual - _mean(history)) / scale if scale else 0.0
-                )
+                current_zscores[symbol] = ((residual - _mean(history)) / scale if scale else 0.0)
                 current_betas[symbol] = coefficients
                 histories[symbol].append(residual)
             model.add(features, returns[symbol])
+
+        # Extend each research signal's residual path for up to 120 minutes on the same session.
+        for track in diagnostic_tracks:
+            if track["complete"]:
+                continue
+            start = datetime.fromisoformat(track["signal_time"])
+            if timestamp <= start:
+                continue
+            elapsed = int((timestamp - start).total_seconds() // 60)
+            if elapsed > 120 or timestamp.astimezone(EASTERN).date() != start.astimezone(EASTERN).date():
+                track["complete"] = True
+                continue
+            zscore = current_zscores.get(track["symbol"])
+            if zscore is not None:
+                track["residual_path"].append({"timestamp": timestamp.isoformat(), "minutes": elapsed, "z": zscore})
+                if track["time_to_convergence_minutes"] is None and abs(zscore) <= config.exit_z:
+                    track["time_to_convergence_minutes"] = elapsed
+            if elapsed >= 120:
+                track["complete"] = True
 
         event: dict[str, Any] | None = None
         closed_this_bar = False
@@ -216,16 +232,26 @@ def run_single_strategy(
                 direction = -1.0 if zscore > 0 else 1.0
                 beta_market, beta_sector = coefficients[1], coefficients[2]
                 gross = 1.0 + abs(beta_market) + abs(beta_sector)
-                candidates.append(
+                candidate = {
+                    "symbol": symbol,
+                    "sector": sectors[symbol],
+                    "direction": "LONG" if direction > 0 else "SHORT",
+                    "residual_zscore": zscore,
+                    "stock_weight": direction / gross,
+                    "spy_weight": -direction * beta_market / gross,
+                    "sector_etf": sector_factors[sectors[symbol]],
+                    "sector_etf_weight": -direction * beta_sector / gross,
+                }
+                candidates.append(candidate)
+                candidate_events.append({"signal_time": timestamp.isoformat(), **candidate})
+                diagnostic_tracks.append(
                     {
+                        "signal_time": timestamp.isoformat(),
                         "symbol": symbol,
-                        "sector": sectors[symbol],
-                        "direction": "LONG" if direction > 0 else "SHORT",
-                        "residual_zscore": zscore,
-                        "stock_weight": direction / gross,
-                        "spy_weight": -direction * beta_market / gross,
-                        "sector_etf": sector_factors[sectors[symbol]],
-                        "sector_etf_weight": -direction * beta_sector / gross,
+                        "entry_z": zscore,
+                        "residual_path": [{"timestamp": timestamp.isoformat(), "minutes": 0, "z": zscore}],
+                        "time_to_convergence_minutes": 0 if abs(zscore) <= config.exit_z else None,
+                        "complete": False,
                     }
                 )
             candidates.sort(key=lambda item: abs(item["residual_zscore"]), reverse=True)
@@ -255,9 +281,7 @@ def run_single_strategy(
                     market_symbol: position.spy_weight,
                     position.sector_etf: position.sector_etf_weight,
                 }
-                entries_by_date[local_timestamp.date()] = (
-                    entries_by_date.get(local_timestamp.date(), 0) + 1
-                )
+                entries_by_date[local_timestamp.date()] = entries_by_date.get(local_timestamp.date(), 0) + 1
                 entry_cost = sum(abs(weight) for weight in position_weights.values()) * config.cost_bps / 10_000
                 pnl -= entry_cost
                 position.net_return -= entry_cost
@@ -268,9 +292,7 @@ def run_single_strategy(
                 "action": "HOLD",
                 "trade": asdict(position),
                 "current_z": current_zscores.get(position.symbol),
-                "remaining_minutes": max(
-                    0, (config.maximum_holding_bars - position.holding_bars) * 5
-                ),
+                "remaining_minutes": max(0, (config.maximum_holding_bars - position.holding_bars) * 5),
             }
         if event:
             last_event = event
@@ -312,6 +334,11 @@ def run_single_strategy(
         "current_state": current_state,
         "latest_candidate_count": len(latest_candidates),
         "latest_candidates": latest_candidates[:10],
+        "candidate_events": candidate_events,
+        "forward_diagnostics": [
+            {key: value for key, value in track.items() if key != "complete"}
+            for track in diagnostic_tracks
+        ],
         "trades": [asdict(trade) for trade in trades],
         "methodology_note": (
             "Uses actual SPY and sector-ETF returns, locked positions, transaction costs, "
