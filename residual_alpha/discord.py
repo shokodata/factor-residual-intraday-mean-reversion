@@ -5,7 +5,19 @@ from __future__ import annotations
 import json
 import os
 import urllib.request
+from datetime import datetime
 from pathlib import Path
+from zoneinfo import ZoneInfo
+
+PACIFIC = ZoneInfo("America/Los_Angeles")
+
+
+def _pacific_time(value: str) -> str:
+    try:
+        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+        return parsed.astimezone(PACIFIC).strftime("%Y-%m-%d %I:%M %p %Z")
+    except (TypeError, ValueError):
+        return str(value)
 
 
 def format_metrics(
@@ -30,7 +42,7 @@ def format_metrics(
         rendered = f"{value:.2%}" if style == "%" else f"{value:.2f}"
         lines.append(f"{label}: **{rendered}**")
     if candidate_report:
-        lines.append(f"Signal timestamp: `{candidate_report.get('as_of', 'unknown')}`")
+        lines.append(f"Signal timestamp: `{_pacific_time(candidate_report.get('as_of', 'unknown'))}`")
         candidates = candidate_report.get("candidates", [])
         universe_size = candidate_report.get("universe_size")
         if universe_size is not None:
@@ -84,7 +96,7 @@ def format_single_report(report: dict, repository: str = "") -> str:
         lines.append(f"Repository: `{repository}`")
     lines.extend(
         [
-            f"Signal timestamp: `{report['as_of']}`",
+            f"Signal timestamp: `{_pacific_time(report['as_of'])}`",
             f"Universe evaluated: **{report['universe_size']} stocks**",
             f"Backtest: **{metrics['completed_trades']} completed trades**, "
             f"win rate **{metrics['win_rate']:.1%}**, average trade **{metrics['average_trade_return']:.3%}**",
@@ -113,11 +125,11 @@ def format_single_report(report: dict, repository: str = "") -> str:
         lines.extend(
             [
                 f"Stock: **{trade['direction']} {trade['symbol']}** `{abs(trade['stock_weight']):.1%}`; "
-                f"entry z `{trade['entry_z']:+.2f}`",
+                f"current `${state.get('current_price', 0.0):.2f}`; entry z `{trade['entry_z']:+.2f}`",
                 f"Hedges: **{_side(trade['spy_weight'])} SPY** `{abs(trade['spy_weight']):.1%}`; "
                 f"**{_side(trade['sector_etf_weight'])} {trade['sector_etf']}** "
                 f"`{abs(trade['sector_etf_weight']):.1%}`",
-                f"Entry: `{trade['entry_time']}`; current z: `{state.get('current_z', trade.get('exit_z'))}`",
+                f"Entry: `{_pacific_time(trade['entry_time'])}`; current z: `{state.get('current_z', trade.get('exit_z'))}`",
             ]
         )
         if action == "HOLD":
@@ -158,12 +170,21 @@ def _single_watchlist_line(candidate: dict, rank: int) -> str:
     if zone:
         frames = "+".join(zone.get("timeframes", []))
         level_text = (
-            f"; level `${zone['lower']:.2f}–${zone['upper']:.2f}` "
-            f"({frames}, {'AT LEVEL' if level.get('aligned') else 'nearby'})"
+            f"; reaction `${level['reaction_price']:.2f}` "
+            f"(zone `${zone['lower']:.2f}–${zone['upper']:.2f}`, "
+            f"{frames}, {'AT LEVEL' if level.get('aligned') else 'nearby'})"
         )
+        target = level.get("target_price")
+        if target is not None:
+            target_kind = "resistance" if candidate["direction"] == "LONG" else "support"
+            level_text += f"; {target_kind} target `${target:.2f}` (`{level['target_room']:+.1%}`)"
+        invalidation = level.get("invalidation_price")
+        if invalidation is not None:
+            level_text += f"; invalidation `${invalidation:.2f}`"
     return (
         f"{rank}. **{candidate['direction']} {candidate['symbol']}** — z "
-        f"`{candidate['residual_zscore']:+.2f}`, stock `{abs(candidate['stock_weight']):.1%}`; "
+        f"`{candidate['residual_zscore']:+.2f}`, current `${level.get('price', 0.0):.2f}`, "
+        f"stock `{abs(candidate['stock_weight']):.1%}`; "
         f"hedges `{_side(candidate['spy_weight'])} SPY {abs(candidate['spy_weight']):.1%}` + "
         f"`{_side(candidate['sector_etf_weight'])} {candidate['sector_etf']} "
         f"{abs(candidate['sector_etf_weight']):.1%}`{level_text}"
