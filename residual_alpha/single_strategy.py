@@ -287,6 +287,9 @@ def run_single_strategy(
         }
     else:
         current_state = last_event
+    state_trade = current_state.get("trade")
+    if state_trade and state_trade.get("symbol") in prices[-1]:
+        current_state["current_price"] = prices[-1][state_trade["symbol"]]
 
     trade_returns = [trade.net_return for trade in trades]
     wins = [value for value in trade_returns if value > 0]
