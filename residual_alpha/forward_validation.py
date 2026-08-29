@@ -29,6 +29,10 @@ def _save(payload: dict, path: str | Path = LEDGER_PATH) -> None:
         handle.write("\n")
 
 
+def _normalize_time(value: str) -> str:
+    return datetime.fromisoformat(value).isoformat()
+
+
 def _portfolio_return(signal: dict, entry_prices: dict[str, float], prices: dict[str, float]) -> float | None:
     legs = {
         signal["symbol"]: signal["stock_weight"],
@@ -65,6 +69,17 @@ def _eod_panel(timestamps, panels, same_date):
     return chosen if chosen else (None, None)
 
 
+def _latest_decision_bar(timestamps, panels, as_of):
+    chosen = None
+    for timestamp, panel in zip(timestamps, panels):
+        if timestamp > as_of:
+            break
+        local = timestamp.astimezone(EASTERN)
+        if local.weekday() < 5 and local.minute == 40 and time(10, 0) <= local.time() <= time(14, 30):
+            chosen = (timestamp, panel)
+    return chosen if chosen else (None, None)
+
+
 def update_forward_validation(report_path: str | Path, bars_path: str | Path, ledger_path: str | Path = LEDGER_PATH) -> dict:
     with Path(report_path).open(encoding="utf-8") as handle:
         report = json.load(handle)
@@ -75,47 +90,52 @@ def update_forward_validation(report_path: str | Path, bars_path: str | Path, le
     existing = {signal["signal_id"]: signal for signal in signals}
 
     as_of = datetime.fromisoformat(report["as_of"])
-    latest_panel = panels[-1]
+    decision_time, decision_panel = _latest_decision_bar(timestamps, panels, as_of)
     latest_candidates = report.get("latest_candidates", [])
 
     completed_by_key = {
-        (trade["symbol"], trade["entry_time"]): trade
+        (trade["symbol"], _normalize_time(trade["entry_time"])): trade
         for trade in report.get("trades", [])
     }
     state_trade = report.get("current_state", {}).get("trade")
     if state_trade:
-        completed_by_key.setdefault((state_trade["symbol"], state_trade["entry_time"]), state_trade)
+        completed_by_key.setdefault(
+            (state_trade["symbol"], _normalize_time(state_trade["entry_time"])),
+            state_trade,
+        )
 
-    for candidate in latest_candidates:
-        signal_id = f"{as_of.isoformat()}::{candidate['symbol']}"
-        signal = existing.get(signal_id)
-        if signal is None:
-            signal = {
-                "signal_id": signal_id,
-                "signal_time": as_of.isoformat(),
-                "symbol": candidate["symbol"],
-                "sector": candidate["sector"],
-                "direction": candidate["direction"],
-                "entry_residual_z": candidate["residual_zscore"],
-                "stock_weight": candidate["stock_weight"],
-                "spy_weight": candidate["spy_weight"],
-                "sector_etf": candidate["sector_etf"],
-                "sector_etf_weight": candidate["sector_etf_weight"],
-                "entry_prices": {
-                    candidate["symbol"]: latest_panel.get(candidate["symbol"]),
-                    "SPY": latest_panel.get("SPY"),
-                    candidate["sector_etf"]: latest_panel.get(candidate["sector_etf"]),
-                },
-                "selected_paper_entry": False,
-                "trade_outcome": None,
-                "horizons": {},
-            }
-            signals.append(signal)
-            existing[signal_id] = signal
+    if decision_time is not None and decision_panel is not None:
+        for candidate in latest_candidates:
+            signal_time = decision_time.isoformat()
+            signal_id = f"{signal_time}::{candidate['symbol']}"
+            signal = existing.get(signal_id)
+            if signal is None:
+                signal = {
+                    "signal_id": signal_id,
+                    "signal_time": signal_time,
+                    "symbol": candidate["symbol"],
+                    "sector": candidate["sector"],
+                    "direction": candidate["direction"],
+                    "entry_residual_z": candidate["residual_zscore"],
+                    "stock_weight": candidate["stock_weight"],
+                    "spy_weight": candidate["spy_weight"],
+                    "sector_etf": candidate["sector_etf"],
+                    "sector_etf_weight": candidate["sector_etf_weight"],
+                    "entry_prices": {
+                        candidate["symbol"]: decision_panel.get(candidate["symbol"]),
+                        "SPY": decision_panel.get("SPY"),
+                        candidate["sector_etf"]: decision_panel.get(candidate["sector_etf"]),
+                    },
+                    "selected_paper_entry": False,
+                    "trade_outcome": None,
+                    "horizons": {},
+                }
+                signals.append(signal)
+                existing[signal_id] = signal
 
-    # Mark the mechanically selected entry when its entry timestamp/symbol matches a recorded candidate.
+    # Mark the mechanically selected entry when timestamp and symbol match.
     for signal in signals:
-        key = (signal["symbol"], signal["signal_time"])
+        key = (signal["symbol"], _normalize_time(signal["signal_time"]))
         trade = completed_by_key.get(key)
         if trade:
             signal["selected_paper_entry"] = True
