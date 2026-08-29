@@ -103,6 +103,7 @@ class DiscordTests(unittest.TestCase):
                 "current_state": {
                     "action": "HOLD",
                     "current_z": 1.1,
+                    "current_price": 123.45,
                     "remaining_minutes": 55,
                     "trade": {
                         "symbol": "AAA", "direction": "SHORT", "stock_weight": -0.6,
@@ -127,6 +128,8 @@ class DiscordTests(unittest.TestCase):
         self.assertIn("Current action: HOLD", report)
         self.assertIn("55 minutes", report)
         self.assertIn("SHORT AAA", report)
+        self.assertIn("10:15 AM PDT", report)
+        self.assertIn("current `$123.45`", report)
         self.assertIn("Ranked watchlist", report)
         self.assertIn("LONG BBB", report)
         self.assertNotIn("1. **SHORT AAA**", report)
@@ -217,6 +220,9 @@ class CriticalLevelTests(unittest.TestCase):
         candidates = annotate_candidates([{"symbol":"AAA", "direction":"LONG", "residual_zscore":-2.0}], rows)
         self.assertIn("level_confluence", candidates[0])
         self.assertIn("aligned", candidates[0]["level_confluence"])
+        self.assertIn("reaction_price", candidates[0]["level_confluence"])
+        self.assertIn("target_price", candidates[0]["level_confluence"])
+        self.assertIn("invalidation_price", candidates[0]["level_confluence"])
 
 
 if __name__ == "__main__":
