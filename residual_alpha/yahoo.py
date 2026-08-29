@@ -101,3 +101,35 @@ def download_bars(
             for symbol in symbols:
                 writer.writerow([iso_timestamp, symbol, f"{float(row[symbol]):.8f}", universe[symbol]])
     return len(closes), len(symbols)
+
+
+def download_ohlcv(universe_path: str | Path, output_path: str | Path,
+                   period: str = "1mo", interval: str = "1h", batch_size: int = 50) -> tuple[int, int]:
+    """Download hourly OHLCV used only for recent structural levels."""
+    try:
+        import yfinance as yf
+    except ImportError as exc:
+        raise RuntimeError("Install the project dependencies before downloading data") from exc
+    universe = read_universe(universe_path); symbols = list(universe); frames = []
+    for start in range(0, len(symbols), batch_size):
+        batch = symbols[start:start + batch_size]
+        frame = yf.download(batch, period=period, interval=interval, auto_adjust=True,
+                            prepost=False, group_by="ticker", threads=True,
+                            progress=False, timeout=30)
+        for symbol in batch:
+            try:
+                part = frame[symbol][["Open", "High", "Low", "Close", "Volume"]].dropna()
+            except (KeyError, TypeError):
+                continue
+            part = part.copy(); part["symbol"] = symbol; frames.append(part)
+        if start + batch_size < len(symbols): sleep(.4)
+    if not frames: raise RuntimeError("Yahoo Finance returned no hourly OHLCV")
+    output_path = Path(output_path); output_path.parent.mkdir(parents=True, exist_ok=True)
+    count = 0
+    with output_path.open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.writer(handle); writer.writerow(["timestamp","symbol","open","high","low","close","volume"])
+        for frame in frames:
+            symbol = frame["symbol"].iloc[0]
+            for timestamp, row in frame.iloc[:-1].iterrows():
+                writer.writerow([timestamp.isoformat(), symbol, row.Open, row.High, row.Low, row.Close, row.Volume]); count += 1
+    return count, len(frames)
