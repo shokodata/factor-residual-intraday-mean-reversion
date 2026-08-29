@@ -1,0 +1,32 @@
+name: Weekly residual-alpha forward validation
+
+on:
+  schedule:
+    # Saturday 10:17 AM Pacific during PDT; 9:17 AM during PST.
+    - cron: "17 17 * * 6"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  weekly-forward-report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install project
+        run: python -m pip install .
+
+      - name: Send weekly forward-validation report to Discord
+        run: python scripts/weekly_forward_report.py
