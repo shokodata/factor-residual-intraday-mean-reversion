@@ -14,6 +14,7 @@ from residual_alpha.linalg import neutralize
 from residual_alpha.synthetic import generate
 from residual_alpha.yahoo import read_universe
 from residual_alpha.single_strategy import SingleStrategyConfig, run_single_strategy
+from residual_alpha.levels import OHLCV, analyze_levels, annotate_candidates
 from scripts.check_market_window import is_research_window
 from scripts.refresh_sp500_universe import yahoo_symbol
 
@@ -199,6 +200,23 @@ class SingleStrategyTests(unittest.TestCase):
             gross = abs(trade["stock_weight"]) + abs(trade["spy_weight"]) + abs(trade["sector_etf_weight"])
             self.assertAlmostEqual(gross, 1.0, places=6)
             self.assertLessEqual(trade["holding_bars"], 12)
+
+
+class CriticalLevelTests(unittest.TestCase):
+    def test_confirmed_multitimeframe_zones_and_ranking(self) -> None:
+        eastern = ZoneInfo("America/New_York")
+        rows = []
+        start = datetime(2026, 8, 3, 10, tzinfo=eastern)
+        for day in range(14):
+            for hour, close in enumerate((101, 100, 102, 100.1, 103, 102)):
+                stamp = start + timedelta(days=day, hours=hour)
+                rows.append(OHLCV(stamp, "AAA", close, close + .4, close - .4, close, 1000))
+        result = analyze_levels(rows, 100.1)
+        self.assertEqual(result["status"], "READY")
+        self.assertIsNotNone(result["support"])
+        candidates = annotate_candidates([{"symbol":"AAA", "direction":"LONG", "residual_zscore":-2.0}], rows)
+        self.assertIn("level_confluence", candidates[0])
+        self.assertIn("aligned", candidates[0]["level_confluence"])
 
 
 if __name__ == "__main__":
