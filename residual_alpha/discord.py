@@ -152,12 +152,21 @@ def format_single_report(report: dict, repository: str = "") -> str:
 
 
 def _single_watchlist_line(candidate: dict, rank: int) -> str:
+    level = candidate.get("level_confluence", {})
+    zone = level.get("relevant_zone")
+    level_text = ""
+    if zone:
+        frames = "+".join(zone.get("timeframes", []))
+        level_text = (
+            f"; level `${zone['lower']:.2f}–${zone['upper']:.2f}` "
+            f"({frames}, {'AT LEVEL' if level.get('aligned') else 'nearby'})"
+        )
     return (
         f"{rank}. **{candidate['direction']} {candidate['symbol']}** — z "
         f"`{candidate['residual_zscore']:+.2f}`, stock `{abs(candidate['stock_weight']):.1%}`; "
         f"hedges `{_side(candidate['spy_weight'])} SPY {abs(candidate['spy_weight']):.1%}` + "
         f"`{_side(candidate['sector_etf_weight'])} {candidate['sector_etf']} "
-        f"{abs(candidate['sector_etf_weight']):.1%}`"
+        f"{abs(candidate['sector_etf_weight']):.1%}`{level_text}"
     )
 
 
