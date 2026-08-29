@@ -13,6 +13,7 @@ from .backtest import BacktestConfig, run_backtest
 from .data import read_bars
 from .synthetic import generate
 from .single_strategy import SingleStrategyConfig, run_single_strategy
+from .levels import annotate_candidates, read_ohlcv
 
 
 SECTOR_ETFS = {
@@ -58,6 +59,7 @@ def _parser() -> argparse.ArgumentParser:
     single.add_argument("--exit-z", type=float, default=0.35)
     single.add_argument("--cost-bps", type=float, default=1.0)
     single.add_argument("--validation-summary")
+    single.add_argument("--levels")
     return parser
 
 
@@ -82,6 +84,8 @@ def main() -> None:
         if args.validation_summary:
             with Path(args.validation_summary).open(encoding="utf-8") as handle:
                 report["validation"] = json.load(handle)
+        if args.levels:
+            report["latest_candidates"] = annotate_candidates(report["latest_candidates"], read_ohlcv(args.levels))
         with (output / "single_report.json").open("w", encoding="utf-8") as handle:
             json.dump(report, handle, indent=2, default=str)
         with (output / "metrics.json").open("w", encoding="utf-8") as handle:
