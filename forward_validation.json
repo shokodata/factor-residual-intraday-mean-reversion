@@ -688745,7 +688745,3714 @@
           "z": -0.21730088530555938
         }
       ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::ADM",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "ADM",
+      "sector": "Consumer Staples",
+      "direction": "SHORT",
+      "entry_residual_z": 1.814519667421698,
+      "z_bucket": "1.5-2.0",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": -0.8767015229264897,
+      "spy_weight": -0.10771752151706679,
+      "sector_etf": "XLP",
+      "sector_etf_weight": 0.015580955556443442,
+      "entry_prices": {
+        "ADM": 83.18250275,
+        "SPY": 773.27001953,
+        "XLP": 82.68000031
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0012297350820924808,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": -0.0018685432673764784
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": -0.0014579737225204608
+        }
+      },
+      "path_stats": {
+        "mfe": -0.0002,
+        "mae": -0.0018685432673764784,
+        "time_to_convergence_minutes": 10
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": 1.814519667421698
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": 1.3035263509736155
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": 0.3482517121150476
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 0.4159112927615288
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": -0.06800263658964101
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": 0.4091869321580757
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::ADP",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "ADP",
+      "sector": "Industrials",
+      "direction": "SHORT",
+      "entry_residual_z": 1.504504001469482,
+      "z_bucket": "1.5-2.0",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": -0.5712766994119359,
+      "spy_weight": 0.027985276727775794,
+      "sector_etf": "XLI",
+      "sector_etf_weight": 0.40073802386028823,
+      "entry_prices": {
+        "ADP": 267.48999023,
+        "SPY": 773.27001953,
+        "XLI": 169.25
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0008280716489681053,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": -0.001656141234610288
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": 0.0006778099885707887
+        }
+      },
+      "path_stats": {
+        "mfe": 0.0006778099885707887,
+        "mae": -0.001656141234610288,
+        "time_to_convergence_minutes": 20
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": 1.504504001469482
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": 1.5304230229957558
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": -0.5857128196786223
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 1.152655381640581
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": -0.12945289753277955
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": -1.7253165891150735
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::AMT",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "AMT",
+      "sector": "Real Estate",
+      "direction": "SHORT",
+      "entry_residual_z": 2.00926615513702,
+      "z_bucket": "2.0-2.5",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": -0.46446460366294173,
+      "spy_weight": -0.01940420779923418,
+      "sector_etf": "XLRE",
+      "sector_etf_weight": 0.5161311885378242,
+      "entry_prices": {
+        "AMT": 174.77000427,
+        "SPY": 773.27001953,
+        "XLRE": 42.5
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0008470681421139264,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": -0.0005568324501208679
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": -0.0019946786311591616
+        }
+      },
+      "path_stats": {
+        "mfe": 0.00036284092066267486,
+        "mae": -0.0019946786311591616,
+        "time_to_convergence_minutes": null
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": 2.00926615513702
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": -0.8462250856968951
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": 1.895523847948715
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": -0.7158146665648314
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": 0.4268046924983386
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": 1.287394685992915
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::ANET",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "ANET",
+      "sector": "Information Technology",
+      "direction": "SHORT",
+      "entry_residual_z": 1.5075937885884134,
+      "z_bucket": "1.5-2.0",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": -0.24684978981676922,
+      "spy_weight": -0.3107933410358914,
+      "sector_etf": "XLK",
+      "sector_etf_weight": 0.4423568691473394,
+      "entry_prices": {
+        "ANET": 205.74000549,
+        "SPY": 773.27001953,
+        "XLK": 194.92999268
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0012599786882194215,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": 0.001632457977583286
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": 0.0003469741507551682
+        }
+      },
+      "path_stats": {
+        "mfe": 0.0017891459924310312,
+        "mae": -0.0002,
+        "time_to_convergence_minutes": null
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": 1.5075937885884134
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": -2.725021626392243
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": -0.9053356858913622
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 0.37589067952925476
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": 0.8339289653931486
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": 1.6762056432910897
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::BAX",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "BAX",
+      "sector": "Health Care",
+      "direction": "SHORT",
+      "entry_residual_z": 1.8670058045069828,
+      "z_bucket": "1.5-2.0",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": -0.20769052368509597,
+      "spy_weight": 0.6639873819228558,
+      "sector_etf": "XLV",
+      "sector_etf_weight": -0.1283220943920482,
+      "entry_prices": {
+        "BAX": 23.74500084,
+        "SPY": 773.27001953,
+        "XLV": 169.69000244
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0010259020881870204,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": -0.0008417954328100562
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": -0.0005133015591699479
+        }
+      },
+      "path_stats": {
+        "mfe": 0.00018004118672391964,
+        "mae": -0.0008417954328100562,
+        "time_to_convergence_minutes": 25
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": 1.8670058045069828
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": -1.0623170055380038
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": 0.5611800127915969
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": -0.47054091784405794
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": -1.5818597384859339
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": 0.06224374677416452
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::BG",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "BG",
+      "sector": "Consumer Staples",
+      "direction": "SHORT",
+      "entry_residual_z": 2.0144163078866417,
+      "z_bucket": "2.0-2.5",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": -0.6166947168901269,
+      "spy_weight": 0.006290657307645025,
+      "sector_etf": "XLP",
+      "sector_etf_weight": 0.37701462580222805,
+      "entry_prices": {
+        "BG": 112.25,
+        "SPY": 773.27001953,
+        "XLP": 82.68000031
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0012297350820924808,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": 0.0011414881675516297
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": 0.0011473663436293434
+        }
+      },
+      "path_stats": {
+        "mfe": 0.0016235449238191603,
+        "mae": -0.0002,
+        "time_to_convergence_minutes": 15
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": 2.0144163078866417
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": -0.6990820160080711
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": 1.072415936924156
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": -0.037063686406222256
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": 0.48008910248741793
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": 0.21262789790091435
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::C",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "C",
+      "sector": "Financials",
+      "direction": "LONG",
+      "entry_residual_z": -2.214456557457482,
+      "z_bucket": "2.0-2.5",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": 0.3562019929189214,
+      "spy_weight": -0.13054861613103924,
+      "sector_etf": "XLF",
+      "sector_etf_weight": -0.5132493909500393,
+      "entry_prices": {
+        "C": 131.16000366,
+        "SPY": 773.27001953,
+        "XLF": 54.84500122
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0018044984264109685,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": 0.0006440626903513655
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": 0.0013435791692572405
+        }
+      },
+      "path_stats": {
+        "mfe": 0.0013435791692572405,
+        "mae": -0.0002,
+        "time_to_convergence_minutes": 15
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": -2.214456557457482
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": 0.821883197947903
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": 1.8365059940619513
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": -0.08166575629423596
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": 0.3222980562261383
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": 1.56306606735295
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::CCI",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "CCI",
+      "sector": "Real Estate",
+      "direction": "SHORT",
+      "entry_residual_z": 1.5169963367596904,
+      "z_bucket": "1.5-2.0",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": -0.3514103278471634,
+      "spy_weight": -0.16585930605495006,
+      "sector_etf": "XLRE",
+      "sector_etf_weight": 0.4827303660978865,
+      "entry_prices": {
+        "CCI": 73.16000366,
+        "SPY": 773.27001953,
+        "XLRE": 42.5
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0008470681421139264,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": -0.0005771567302379212
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": -0.002784455148225387
+        }
+      },
+      "path_stats": {
+        "mfe": -0.00014174173354588172,
+        "mae": -0.002784455148225387,
+        "time_to_convergence_minutes": 5
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": 1.5169963367596904
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": -0.04464786348058641
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": 0.44107414276283363
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 0.2757737750112873
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": 0.48331876350575614
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": 2.9093653905172534
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::CSGP",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "CSGP",
+      "sector": "Real Estate",
+      "direction": "SHORT",
+      "entry_residual_z": 2.0436577437230756,
+      "z_bucket": "2.0-2.5",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": -0.24090734731901797,
+      "spy_weight": 0.6966754031019303,
+      "sector_etf": "XLRE",
+      "sector_etf_weight": 0.06241724957905159,
+      "entry_prices": {
+        "CSGP": 28.68000031,
+        "SPY": 773.27001953,
+        "XLRE": 42.5
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0008470681421139264,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": -3.0227524558566797e-05
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": 0.0005861531795544854
+        }
+      },
+      "path_stats": {
+        "mfe": 0.0005861531795544854,
+        "mae": -0.00019999999999999998,
+        "time_to_convergence_minutes": 5
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": 2.0436577437230756
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": -0.17680984372077527
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": 0.21259451853120018
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 0.5808177056888819
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": 0.2216011312984021
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": -0.48525865944676694
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::D",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "D",
+      "sector": "Utilities",
+      "direction": "SHORT",
+      "entry_residual_z": 1.6270081801661977,
+      "z_bucket": "1.5-2.0",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": -0.3712624758281587,
+      "spy_weight": 0.20438396961023075,
+      "sector_etf": "XLU",
+      "sector_etf_weight": 0.4243535545616106,
+      "entry_prices": {
+        "D": 62.86999893,
+        "SPY": 773.27001953,
+        "XLU": 40.70500183
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.001158639053556099,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": 0.00016621143248380746
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": -0.0002446902164531845
+        }
+      },
+      "path_stats": {
+        "mfe": 0.00016621143248380746,
+        "mae": -0.0002446902164531845,
+        "time_to_convergence_minutes": 10
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": 1.6270081801661977
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": -1.1673373579720896
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": 0.34675614509067537
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": -0.2654561733801709
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": 1.6784678319546167
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": 0.08588136604703195
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::DXCM",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "DXCM",
+      "sector": "Health Care",
+      "direction": "SHORT",
+      "entry_residual_z": 1.5135774039409018,
+      "z_bucket": "1.5-2.0",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": -0.6517887574245018,
+      "spy_weight": 0.19893875135569053,
+      "sector_etf": "XLV",
+      "sector_etf_weight": -0.14927249121980762,
+      "entry_prices": {
+        "DXCM": 88.33999634,
+        "SPY": 773.27001953,
+        "XLV": 169.69000244
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0010259020881870204,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": -0.006313010697718079
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": -0.006711635187165271
+        }
+      },
+      "path_stats": {
+        "mfe": -0.0002,
+        "mae": -0.006711635187165271,
+        "time_to_convergence_minutes": 20
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": 1.5135774039409018
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": 0.4818444949228587
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": 3.2461150521451922
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 1.2837082311839632
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": -0.09493495671786698
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": 0.16552446029652118
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::EMR",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "EMR",
+      "sector": "Industrials",
+      "direction": "LONG",
+      "entry_residual_z": -1.5740704604650213,
+      "z_bucket": "1.5-2.0",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": 0.2564388528823335,
+      "spy_weight": -0.6946994176289314,
+      "sector_etf": "XLI",
+      "sector_etf_weight": -0.04886172948873511,
+      "entry_prices": {
+        "EMR": 152.83500671,
+        "SPY": 773.27001953,
+        "XLI": 169.25
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0008280716489681053,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": 0.0004402330581533149
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": 0.0011901411079312716
+        }
+      },
+      "path_stats": {
+        "mfe": 0.0011901411079312716,
+        "mae": -0.0006775613614609068,
+        "time_to_convergence_minutes": 20
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": -1.5740704604650213
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": -0.8963556843186128
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": 0.43477746089835095
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 0.8152552672249024
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": -0.02433835608379635
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": 0.4009691928435022
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::FANG",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "FANG",
+      "sector": "Energy",
+      "direction": "SHORT",
+      "entry_residual_z": 1.643137358518673,
+      "z_bucket": "1.5-2.0",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": -0.3876059596009863,
+      "spy_weight": -0.15698016023425904,
+      "sector_etf": "XLE",
+      "sector_etf_weight": 0.4554138801647546,
+      "entry_prices": {
+        "FANG": 187.17999268,
+        "SPY": 773.27001953,
+        "XLE": 62.38499832
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0018193281757863332,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": -0.000349772316889829
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": 7.766477411383732e-05
+        }
+      },
+      "path_stats": {
+        "mfe": 0.00028261689290648526,
+        "mae": -0.000349772316889829,
+        "time_to_convergence_minutes": 15
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": 1.643137358518673
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": -0.412739821978831
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": 0.9503310477627788
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 0.21747670881035203
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": -0.048633520794777105
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": -0.2144362523317454
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::FDXF",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "FDXF",
+      "sector": "Industrials",
+      "direction": "LONG",
+      "entry_residual_z": -1.5234762913865165,
+      "z_bucket": "1.5-2.0",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": 0.24115713125576413,
+      "spy_weight": -0.5341598451171763,
+      "sector_etf": "XLI",
+      "sector_etf_weight": -0.22468302362705952,
+      "entry_prices": {
+        "FDXF": 118.07779694,
+        "SPY": 773.27001953,
+        "XLI": 169.25
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0008280716489681053,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": -0.00036854872704957203
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": -0.00013283295630632392
+        }
+      },
+      "path_stats": {
+        "mfe": -0.00012459166682611547,
+        "mae": -0.0006143154544613055,
+        "time_to_convergence_minutes": 5
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": -1.5234762913865165
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": -0.15940701928180742
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": -0.6992469110614088
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 0.12465690525386929
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": 0.03728783155825494
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": -0.21781173470623186
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::FLEX",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "FLEX",
+      "sector": "Information Technology",
+      "direction": "LONG",
+      "entry_residual_z": -2.0607947585923116,
+      "z_bucket": "2.0-2.5",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": 0.1930279882134223,
+      "spy_weight": 0.3440397211842096,
+      "sector_etf": "XLK",
+      "sector_etf_weight": -0.462932290602368,
+      "entry_prices": {
+        "FLEX": 111.90000153,
+        "SPY": 773.27001953,
+        "XLK": 194.92999268
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0012599786882194215,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": -0.0015966586452751692
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": -0.0016245087527159245
+        }
+      },
+      "path_stats": {
+        "mfe": -0.00019999999999999998,
+        "mae": -0.0018553516261356601,
+        "time_to_convergence_minutes": 10
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": -2.0607947585923116
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": -3.709378941122056
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": 0.024545013193064628
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 0.4757658891659728
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": -0.3872005579896414
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": 0.5832631212573519
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::GE",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "GE",
+      "sector": "Industrials",
+      "direction": "SHORT",
+      "entry_residual_z": 2.2234904396934367,
+      "z_bucket": "2.0-2.5",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": -0.28656942855875817,
+      "spy_weight": -0.1770327852112839,
+      "sector_etf": "XLI",
+      "sector_etf_weight": 0.536397786229958,
+      "entry_prices": {
+        "GE": 314.8500061,
+        "SPY": 773.27001953,
+        "XLI": 169.25
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0008280716489681053,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": -0.001043715156745159
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": -0.001192084450946963
+        }
+      },
+      "path_stats": {
+        "mfe": -0.0002,
+        "mae": -0.001192084450946963,
+        "time_to_convergence_minutes": 20
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": 2.2234904396934367
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": 0.7990626303224087
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": 1.4899533898854644
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 0.39487427154419624
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": -0.12596341211160678
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": 0.9565612820224875
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::GM",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "GM",
+      "sector": "Consumer Discretionary",
+      "direction": "SHORT",
+      "entry_residual_z": 1.734335340959548,
+      "z_bucket": "1.5-2.0",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": -0.2555278737992496,
+      "spy_weight": 0.5658295572359121,
+      "sector_etf": "XLY",
+      "sector_etf_weight": 0.17864256896483827,
+      "entry_prices": {
+        "GM": 83.47499847,
+        "SPY": 773.27001953,
+        "XLY": 112.62000275
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0011069122761948264,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": -0.0011268895983645919
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": -0.0014274376355044554
+        }
+      },
+      "path_stats": {
+        "mfe": -0.0002,
+        "mae": -0.0014274376355044554,
+        "time_to_convergence_minutes": 20
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": 1.734335340959548
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": 0.37619065224872883
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": 0.96454709587352
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 0.8388692043662801
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": -0.3350023192901833
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": 1.1332063174238125
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::GWW",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "GWW",
+      "sector": "Industrials",
+      "direction": "LONG",
+      "entry_residual_z": -1.8658536671246282,
+      "z_bucket": "1.5-2.0",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": 0.5109520062658326,
+      "spy_weight": -0.37707423052945027,
+      "sector_etf": "XLI",
+      "sector_etf_weight": -0.11197376320471723,
+      "entry_prices": {
+        "GWW": 1285.42004395,
+        "SPY": 773.27001953,
+        "XLI": 169.25
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0008280716489681053,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": -0.0011092567651926856
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": -0.0015861057125326507
+        }
+      },
+      "path_stats": {
+        "mfe": -0.0002,
+        "mae": -0.0015861057125326507,
+        "time_to_convergence_minutes": 15
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": -1.8658536671246282
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": -0.48225324633676814
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": -1.5544118866437102
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 0.026222625347608382
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": 0.17725481187417497
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": -1.292478211809827
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::HAL",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "HAL",
+      "sector": "Energy",
+      "direction": "SHORT",
+      "entry_residual_z": 1.6478500639878226,
+      "z_bucket": "1.5-2.0",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": -0.46667317515055334,
+      "spy_weight": -0.12113584991709424,
+      "sector_etf": "XLE",
+      "sector_etf_weight": 0.4121909749323524,
+      "entry_prices": {
+        "HAL": 33.11500168,
+        "SPY": 773.27001953,
+        "XLE": 62.38499832
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0018193281757863332,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": -0.0002565102603425991
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": -0.0022479620937083493
+        }
+      },
+      "path_stats": {
+        "mfe": -4.1188684773241474e-05,
+        "mae": -0.0022479620937083493,
+        "time_to_convergence_minutes": 5
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": 1.6478500639878226
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": -0.003021239078528882
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": 0.46801370636135287
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 0.10135507023864591
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": 1.0755435636597452
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": 1.5096030183947384
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::HII",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "HII",
+      "sector": "Industrials",
+      "direction": "SHORT",
+      "entry_residual_z": 1.6261010774220142,
+      "z_bucket": "1.5-2.0",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": -0.29949271702324237,
+      "spy_weight": -0.20203633962028833,
+      "sector_etf": "XLI",
+      "sector_etf_weight": 0.49847094335646935,
+      "entry_prices": {
+        "HII": 268.86499023,
+        "SPY": 773.27001953,
+        "XLI": 169.25
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0008280716489681053,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": 0.00017768840373722907
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": -0.0004835689447755219
+        }
+      },
+      "path_stats": {
+        "mfe": 0.00017768840373722907,
+        "mae": -0.0007435325298848677,
+        "time_to_convergence_minutes": 5
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": 1.6261010774220142
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": -0.11855930920453589
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": 0.4311948664824053
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 0.20859547055499023
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": 1.7251011369111366
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": -0.10827430788872851
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::HWM",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "HWM",
+      "sector": "Industrials",
+      "direction": "SHORT",
+      "entry_residual_z": 1.9701597280714034,
+      "z_bucket": "1.5-2.0",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": -0.22628080234040454,
+      "spy_weight": -0.3858464809160738,
+      "sector_etf": "XLI",
+      "sector_etf_weight": 0.3878727167435217,
+      "entry_prices": {
+        "HWM": 223.99000549,
+        "SPY": 773.27001953,
+        "XLI": 169.25
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0008280716489681053,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": -0.0001720083076042967
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": -0.0008029649618900995
+        }
+      },
+      "path_stats": {
+        "mfe": -7.375881127670762e-05,
+        "mae": -0.0008029649618900995,
+        "time_to_convergence_minutes": 10
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": 1.9701597280714034
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": 0.501487136889364
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": -0.3335011998754449
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 0.48721163112314886
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": 0.37429326573349736
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": 1.7596738796716649
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::ICE",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "ICE",
+      "sector": "Financials",
+      "direction": "SHORT",
+      "entry_residual_z": 1.9478631148648136,
+      "z_bucket": "1.5-2.0",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": -0.40008242592734045,
+      "spy_weight": -0.24642923155276414,
+      "sector_etf": "XLF",
+      "sector_etf_weight": 0.35348834251989547,
+      "entry_prices": {
+        "ICE": 153.7250061,
+        "SPY": 773.27001953,
+        "XLF": 54.84500122
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0018044984264109685,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": 0.00014810726685708986
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": -9.5614384700372e-05
+        }
+      },
+      "path_stats": {
+        "mfe": 0.00014810726685708986,
+        "mae": -0.001249670510607799,
+        "time_to_convergence_minutes": 10
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": 1.9478631148648136
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": 1.1532546424247216
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": 0.21226374663949846
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": -2.5392312646408133
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": -0.06647363243635268
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": 0.24534655773074088
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::IP",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "IP",
+      "sector": "Materials",
+      "direction": "LONG",
+      "entry_residual_z": -2.00859484508187,
+      "z_bucket": "2.0-2.5",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": 0.3508432282891121,
+      "spy_weight": -0.07382565060699331,
+      "sector_etf": "XLB",
+      "sector_etf_weight": -0.5753311211038946,
+      "entry_prices": {
+        "IP": 35.56999969,
+        "SPY": 773.27001953,
+        "XLB": 50.03499985
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0014251216969725733,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": -0.00030452540677317443
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": -0.00030788648452316405
+        }
+      },
+      "path_stats": {
+        "mfe": -0.00014670054879375657,
+        "mae": -0.0003798650615312079,
+        "time_to_convergence_minutes": 5
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": -2.00859484508187
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": -0.0835048944689621
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": 0.5370794079592331
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": -0.0956217597353455
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": 0.1282415801675333
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": 0.26606356092686784
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::IT",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "IT",
+      "sector": "Information Technology",
+      "direction": "SHORT",
+      "entry_residual_z": 2.685841418003222,
+      "z_bucket": "2.5-3.0",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": -0.21473940204744266,
+      "spy_weight": 0.6352724472570699,
+      "sector_etf": "XLK",
+      "sector_etf_weight": -0.14998815069548746,
+      "entry_prices": {
+        "IT": 179.59649658,
+        "SPY": 773.27001953,
+        "XLK": 194.92999268
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0012599786882194215,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": 0.0001174832050914691
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": 0.00023394144550819334
+        }
+      },
+      "path_stats": {
+        "mfe": 0.00024902905435526595,
+        "mae": -0.0003520983600833037,
+        "time_to_convergence_minutes": 15
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": 2.685841418003222
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": 0.556580859043213
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": -0.42169925799792823
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 0.3411871881696588
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": 0.10895882816246441
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": 0.3808766638838878
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::KIM",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "KIM",
+      "sector": "Real Estate",
+      "direction": "LONG",
+      "entry_residual_z": -1.5059497987311417,
+      "z_bucket": "1.5-2.0",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": 0.5090499633030101,
+      "spy_weight": -0.0952371581489843,
+      "sector_etf": "XLRE",
+      "sector_etf_weight": -0.3957128785480055,
+      "entry_prices": {
+        "KIM": 22.51499939,
+        "SPY": 773.27001953,
+        "XLRE": 42.5
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0008470681421139264,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": -0.0009632298845611031
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": -0.0008573851247759287
+        }
+      },
+      "path_stats": {
+        "mfe": -0.00019999999999999998,
+        "mae": -0.0012240421689263458,
+        "time_to_convergence_minutes": 20
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": -1.5059497987311417
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": -2.0190818442781326
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": -0.5378482652277532
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 0.3878844067260612
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": 0.3312942649057782
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": -0.4239899334539347
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::LHX",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "LHX",
+      "sector": "Industrials",
+      "direction": "SHORT",
+      "entry_residual_z": 1.8491671606183016,
+      "z_bucket": "1.5-2.0",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": -0.42944635694704897,
+      "spy_weight": -0.2552008216232341,
+      "sector_etf": "XLI",
+      "sector_etf_weight": 0.31535282142971705,
+      "entry_prices": {
+        "LHX": 240.47000122,
+        "SPY": 773.27001953,
+        "XLI": 169.25
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0008280716489681053,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": -0.00033294712224275763
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": -0.001712221332915818
+        }
+      },
+      "path_stats": {
+        "mfe": -1.9457876382065998e-05,
+        "mae": -0.001712221332915818,
+        "time_to_convergence_minutes": 5
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": 1.8491671606183016
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": 0.32729450137473753
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": 0.9012075002803306
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 0.6761216105700637
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": 1.5506688656580763
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": 1.3234655185021045
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::LII",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "LII",
+      "sector": "Industrials",
+      "direction": "LONG",
+      "entry_residual_z": -1.6673666990715332,
+      "z_bucket": "1.5-2.0",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": 0.20528374275837794,
+      "spy_weight": -0.6563796339092852,
+      "sector_etf": "XLI",
+      "sector_etf_weight": -0.13833662333233665,
+      "entry_prices": {
+        "LII": 366.47000122,
+        "SPY": 773.27001953,
+        "XLI": 169.25
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0008280716489681053,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": -0.0006531197440046073
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": -0.0012897789807105027
+        }
+      },
+      "path_stats": {
+        "mfe": -0.00019999999999999996,
+        "mae": -0.0012897789807105027,
+        "time_to_convergence_minutes": 10
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": -1.6673666990715332
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": -1.904605489973303
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": -0.201990762395282
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 0.7496328202061004
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": -0.8677188175351421
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": -0.5965858201401213
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::LMT",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "LMT",
+      "sector": "Industrials",
+      "direction": "SHORT",
+      "entry_residual_z": 1.842606777838279,
+      "z_bucket": "1.5-2.0",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": -0.47817549166658296,
+      "spy_weight": -0.272083657744456,
+      "sector_etf": "XLI",
+      "sector_etf_weight": 0.24974085058896092,
+      "entry_prices": {
+        "LMT": 518.64501953,
+        "SPY": 773.27001953,
+        "XLI": 169.25
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0008280716489681053,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": 0.0007807536534090086
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": -0.0020633052122206916
+        }
+      },
+      "path_stats": {
+        "mfe": 0.0018761569522325228,
+        "mae": -0.0020633052122206916,
+        "time_to_convergence_minutes": 10
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": 1.842606777838279
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": -0.881939840433441
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": 0.17076634479306319
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 1.5941126341640086
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": 1.9643511041123887
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": 1.3667890185493445
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::MCHP",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "MCHP",
+      "sector": "Information Technology",
+      "direction": "LONG",
+      "entry_residual_z": -2.576065163474219,
+      "z_bucket": "2.5-3.0",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": 0.3825257309646738,
+      "spy_weight": -0.12002687780882065,
+      "sector_etf": "XLK",
+      "sector_etf_weight": -0.49744739122650555,
+      "entry_prices": {
+        "MCHP": 75.73999786,
+        "SPY": 773.27001953,
+        "XLK": 194.92999268
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0012599786882194215,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": -0.0006177563381304686
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": -0.0033140012417665885
+        }
+      },
+      "path_stats": {
+        "mfe": -0.0002,
+        "mae": -0.0033140012417665885,
+        "time_to_convergence_minutes": null
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": -2.576065163474219
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": -1.1888601207676015
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": -1.0293792025469617
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 1.0780809160305562
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": -0.9532689547076634
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": -2.085838457753769
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::MSI",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "MSI",
+      "sector": "Information Technology",
+      "direction": "SHORT",
+      "entry_residual_z": 2.0305951341555017,
+      "z_bucket": "2.0-2.5",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": -0.8896486516168267,
+      "spy_weight": 0.0010479603733583082,
+      "sector_etf": "XLK",
+      "sector_etf_weight": 0.10930338800981494,
+      "entry_prices": {
+        "MSI": 457.02999878,
+        "SPY": 773.27001953,
+        "XLK": 194.92999268
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0012599786882194215,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": 0.0011980977779932386
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": 0.0013568736555024871
+        }
+      },
+      "path_stats": {
+        "mfe": 0.0013568736555024871,
+        "mae": -0.0002,
+        "time_to_convergence_minutes": 5
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": 2.0305951341555017
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": 0.07649187027299735
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": -0.4566652967410067
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 0.19151537098144494
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": 0.17614524852859534
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": 0.11228604412166972
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::NEE",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "NEE",
+      "sector": "Utilities",
+      "direction": "SHORT",
+      "entry_residual_z": 2.2686839237308045,
+      "z_bucket": "2.0-2.5",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": -0.4020066641003606,
+      "spy_weight": 0.08653614018041401,
+      "sector_etf": "XLU",
+      "sector_etf_weight": 0.5114571957192254,
+      "entry_prices": {
+        "NEE": 79.63500214,
+        "SPY": 773.27001953,
+        "XLU": 40.70500183
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.001158639053556099,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": 0.0002447420772259041
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": -0.00022278450672927599
+        }
+      },
+      "path_stats": {
+        "mfe": 0.0002447420772259041,
+        "mae": -0.0003144793587614685,
+        "time_to_convergence_minutes": 25
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": 2.2686839237308045
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": -0.6928415850126558
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": 0.3765086507605554
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": -0.72523527068115
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": 1.7472107306294877
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": -0.22130689938522635
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::NTAP",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "NTAP",
+      "sector": "Information Technology",
+      "direction": "SHORT",
+      "entry_residual_z": 1.8535975284147728,
+      "z_bucket": "1.5-2.0",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": -0.5686912995657718,
+      "spy_weight": 0.10441039819682466,
+      "sector_etf": "XLK",
+      "sector_etf_weight": 0.32689830223740357,
+      "entry_prices": {
+        "NTAP": 194.96000671,
+        "SPY": 773.27001953,
+        "XLK": 194.92999268
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0012599786882194215,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": -0.0012703133924191323
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": 0.00038009543617040004
+        }
+      },
+      "path_stats": {
+        "mfe": 0.00038009543617040004,
+        "mae": -0.0020741579731112076,
+        "time_to_convergence_minutes": 5
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": 1.8535975284147728
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": -0.02910426819364799
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": 2.1262369288269882
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": -0.35492126011606384
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": 0.031556913438405006
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": -0.7344000901632278
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::NUE",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "NUE",
+      "sector": "Materials",
+      "direction": "SHORT",
+      "entry_residual_z": 1.6098359829813789,
+      "z_bucket": "1.5-2.0",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": -0.5010750166782209,
+      "spy_weight": -0.0007197578181618393,
+      "sector_etf": "XLB",
+      "sector_etf_weight": 0.49820522550361723,
+      "entry_prices": {
+        "NUE": 242.61000061,
+        "SPY": 773.27001953,
+        "XLB": 50.03499985
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0014251216969725733,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": -0.0014485887861837303
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": -0.0021732908160186594
+        }
+      },
+      "path_stats": {
+        "mfe": 0.0005759409005332053,
+        "mae": -0.0023544553038314184,
+        "time_to_convergence_minutes": 25
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": 1.6098359829813789
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": -0.7654380530049036
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": 1.692039954960431
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 0.7190404070249073
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": 1.0086258819434304
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": -0.2550713152295296
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::O",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "O",
+      "sector": "Real Estate",
+      "direction": "LONG",
+      "entry_residual_z": -2.147509359074539,
+      "z_bucket": "2.0-2.5",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": 0.500180991635046,
+      "spy_weight": -0.11223514033284768,
+      "sector_etf": "XLRE",
+      "sector_etf_weight": -0.38758386803210626,
+      "entry_prices": {
+        "O": 56.67499924,
+        "SPY": 773.27001953,
+        "XLRE": 42.5
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0008470681421139264,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": -4.378235309726572e-05
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": -0.00018361255364633992
+        }
+      },
+      "path_stats": {
+        "mfe": -4.378235309726572e-05,
+        "mae": -0.0006318979908351897,
+        "time_to_convergence_minutes": 25
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": -2.147509359074539
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": -0.7314708083345803
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": -0.3780135616320241
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 1.3834788207760949
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": -0.35758852355346604
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": -0.12061354190229814
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::ON",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "ON",
+      "sector": "Information Technology",
+      "direction": "LONG",
+      "entry_residual_z": -3.4322861516428462,
+      "z_bucket": "3.0-4.0",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": 0.41670726061070335,
+      "spy_weight": 0.05333085356913476,
+      "sector_etf": "XLK",
+      "sector_etf_weight": -0.5299618858201619,
+      "entry_prices": {
+        "ON": 72.16000366,
+        "SPY": 773.27001953,
+        "XLK": 194.92999268
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0012599786882194215,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": true,
+      "trade_outcome": {
+        "exit_time": null,
+        "exit_z": null,
+        "exit_reason": null,
+        "holding_bars": 5,
+        "net_return": -0.003179904636585186,
+        "resolved": false
+      },
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": -0.0010798381284807602
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": -0.0032794840033145865
+        }
+      },
+      "path_stats": {
+        "mfe": -0.0002,
+        "mae": -0.0032794840033145865,
+        "time_to_convergence_minutes": 10
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": -3.4322861516428462
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": -1.3984806717040876
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": -0.037067101912740694
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 0.2858517449337501
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": 0.09905225263081129
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": -2.1022313609091574
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::PAYX",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "PAYX",
+      "sector": "Industrials",
+      "direction": "SHORT",
+      "entry_residual_z": 2.182260294884927,
+      "z_bucket": "2.0-2.5",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": -0.47195201658243374,
+      "spy_weight": -0.0409422678634082,
+      "sector_etf": "XLI",
+      "sector_etf_weight": 0.48710571555415805,
+      "entry_prices": {
+        "PAYX": 114.04499817,
+        "SPY": 773.27001953,
+        "XLI": 169.25
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0008280716489681053,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": -0.0005092575535588502
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": 0.0021650070469237575
+        }
+      },
+      "path_stats": {
+        "mfe": 0.0021650070469237575,
+        "mae": -0.0009913967267307401,
+        "time_to_convergence_minutes": null
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": 2.182260294884927
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": 1.072365347291988
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": -0.8228177983414605
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 0.49748502747730944
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": -0.47204552364264607
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": -2.2840650019549575
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::PHM",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "PHM",
+      "sector": "Consumer Discretionary",
+      "direction": "LONG",
+      "entry_residual_z": -1.5404466204019054,
+      "z_bucket": "1.5-2.0",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": 0.3028998913958172,
+      "spy_weight": -0.10149639470521445,
+      "sector_etf": "XLY",
+      "sector_etf_weight": -0.5956037138989684,
+      "entry_prices": {
+        "PHM": 121.05500031,
+        "SPY": 773.27001953,
+        "XLY": 112.62000275
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0011069122761948264,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": 0.00040017642449529604
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": 0.0008903983041440201
+        }
+      },
+      "path_stats": {
+        "mfe": 0.0008903983041440201,
+        "mae": -0.0011166461910462999,
+        "time_to_convergence_minutes": 10
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": -1.5404466204019054
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": -1.1578751768204758
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": 0.3451816997003666
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 0.8498026053056569
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": -0.1848458162450603
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": 0.28799618558363915
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::PODD",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "PODD",
+      "sector": "Health Care",
+      "direction": "SHORT",
+      "entry_residual_z": 2.688524052547493,
+      "z_bucket": "2.5-3.0",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": -0.41454227215311135,
+      "spy_weight": 0.3831099854898613,
+      "sector_etf": "XLV",
+      "sector_etf_weight": 0.2023477423570273,
+      "entry_prices": {
+        "PODD": 138.69999695,
+        "SPY": 773.27001953,
+        "XLV": 169.69000244
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0010259020881870204,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": -0.00026120131467950085
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": -0.0011890149432670187
+        }
+      },
+      "path_stats": {
+        "mfe": 0.001002908928658348,
+        "mae": -0.0011890149432670187,
+        "time_to_convergence_minutes": 10
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": 2.688524052547493
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": -0.8104795943283036
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": -0.14951250059925925
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 2.0023191311302533
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": 0.6401472786875853
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": 1.0384591416930884
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::PYPL",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "PYPL",
+      "sector": "Financials",
+      "direction": "LONG",
+      "entry_residual_z": -1.5773776870996372,
+      "z_bucket": "1.5-2.0",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": 0.37733027362751126,
+      "spy_weight": -0.24979991770228305,
+      "sector_etf": "XLF",
+      "sector_etf_weight": -0.37286980867020575,
+      "entry_prices": {
+        "PYPL": 52.22499847,
+        "SPY": 773.27001953,
+        "XLF": 54.84500122
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0018044984264109685,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": 0.0010498235603304184
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": 0.0009172286606745091
+        }
+      },
+      "path_stats": {
+        "mfe": 0.001113298813469867,
+        "mae": -0.0002,
+        "time_to_convergence_minutes": 5
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": -1.5773776870996372
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": 0.347372896290494
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": 0.5213694236596315
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 0.19815283899000644
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": -0.14212619327625492
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": -0.443450122993516
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::REG",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "REG",
+      "sector": "Real Estate",
+      "direction": "LONG",
+      "entry_residual_z": -1.5458266096217632,
+      "z_bucket": "1.5-2.0",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": 0.4746505198022484,
+      "spy_weight": -0.23942946375697685,
+      "sector_etf": "XLRE",
+      "sector_etf_weight": -0.28592001644077464,
+      "entry_prices": {
+        "REG": 73.01000214,
+        "SPY": 773.27001953,
+        "XLRE": 42.5
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0008470681421139264,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": -8.278709696520333e-05
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": -0.00027362945076075284
+        }
+      },
+      "path_stats": {
+        "mfe": -8.278709696520333e-05,
+        "mae": -0.00055194579495056,
+        "time_to_convergence_minutes": 10
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": -1.5458266096217632
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": -0.6802779208346011
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": 0.18873042824294683
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 0.36753203309452537
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": -0.18812384765213352
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": -0.35153050912570266
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::RMD",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "RMD",
+      "sector": "Health Care",
+      "direction": "SHORT",
+      "entry_residual_z": 1.5914783368111793,
+      "z_bucket": "1.5-2.0",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": -0.4628480649622003,
+      "spy_weight": 0.4829302277660757,
+      "sector_etf": "XLV",
+      "sector_etf_weight": 0.054221707271723915,
+      "entry_prices": {
+        "RMD": 223.88499451,
+        "SPY": 773.27001953,
+        "XLV": 169.69000244
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0010259020881870204,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": -0.0011705521827662887
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": -0.0010210546455028838
+        }
+      },
+      "path_stats": {
+        "mfe": 0.00030811140593125586,
+        "mae": -0.0015132718147235187,
+        "time_to_convergence_minutes": null
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": 1.5914783368111793
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": -0.6636300172451235
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": 0.44382485364888447
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 1.3446260103076255
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": 0.36111275006964527
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": -0.6925116892214402
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::ROK",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "ROK",
+      "sector": "Industrials",
+      "direction": "LONG",
+      "entry_residual_z": -2.081130212655273,
+      "z_bucket": "2.0-2.5",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": 0.48663764890813604,
+      "spy_weight": -0.155346604942906,
+      "sector_etf": "XLI",
+      "sector_etf_weight": -0.3580157461489581,
+      "entry_prices": {
+        "ROK": 424.36999512,
+        "SPY": 773.27001953,
+        "XLI": 169.25
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0008280716489681053,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": -0.0017280214015562663
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": -0.0011581885325762928
+        }
+      },
+      "path_stats": {
+        "mfe": -0.00020000000000000004,
+        "mae": -0.0017666384763588504,
+        "time_to_convergence_minutes": 15
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": -2.081130212655273
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": -1.3983228270354837
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": -1.3640355126427124
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 0.022926140368536213
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": 0.09883268767257497
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": 0.5829895460572103
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::RTX",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "RTX",
+      "sector": "Industrials",
+      "direction": "SHORT",
+      "entry_residual_z": 2.047057851040395,
+      "z_bucket": "2.0-2.5",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": -0.2750406904721754,
+      "spy_weight": -0.37583184015667603,
+      "sector_etf": "XLI",
+      "sector_etf_weight": 0.3491274693711487,
+      "entry_prices": {
+        "RTX": 187.52000427,
+        "SPY": 773.27001953,
+        "XLI": 169.25
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0008280716489681053,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": -0.0009127255335768673
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": -0.0023755853298945253
+        }
+      },
+      "path_stats": {
+        "mfe": -0.0002,
+        "mae": -0.0023755853298945253,
+        "time_to_convergence_minutes": 15
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": 2.047057851040395
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": 1.3444945011557745
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": 1.0377021970729385
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 0.31159345711636854
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": 1.859757154932746
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": 1.1135112998519614
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::SBAC",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "SBAC",
+      "sector": "Real Estate",
+      "direction": "SHORT",
+      "entry_residual_z": 2.7517032867052325,
+      "z_bucket": "2.5-3.0",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": -0.3575886195049806,
+      "spy_weight": -0.11613702551322555,
+      "sector_etf": "XLRE",
+      "sector_etf_weight": 0.5262743549817936,
+      "entry_prices": {
+        "SBAC": 176.19000244,
+        "SPY": 773.27001953,
+        "XLRE": 42.5
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0008470681421139264,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": -0.00081212590672074
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": -0.001941064070758454
+        }
+      },
+      "path_stats": {
+        "mfe": 0.0005638809279230499,
+        "mae": -0.001941064070758454,
+        "time_to_convergence_minutes": null
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": 2.7517032867052325
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": -0.8491707659281634
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": 1.2494261072200745
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 1.0633893218703643
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": -0.39695313731287385
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": 2.21761522856852
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::SNPS",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "SNPS",
+      "sector": "Information Technology",
+      "direction": "LONG",
+      "entry_residual_z": -1.8177877061110008,
+      "z_bucket": "1.5-2.0",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": 0.38492390497340173,
+      "spy_weight": -0.24373453460072803,
+      "sector_etf": "XLK",
+      "sector_etf_weight": -0.3713415604258703,
+      "entry_prices": {
+        "SNPS": 407.25,
+        "SPY": 773.27001953,
+        "XLK": 194.92999268
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0012599786882194215,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": -0.0003907522585965932
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": -1.692187825971903e-05
+        }
+      },
+      "path_stats": {
+        "mfe": -1.692187825971903e-05,
+        "mae": -0.0013466436252095094,
+        "time_to_convergence_minutes": 10
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": -1.8177877061110008
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": -1.1675327423082593
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": -0.11771112454694235
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 0.6789316314801849
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": -0.8468556383267053
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": 0.8691665919855912
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::STZ",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "STZ",
+      "sector": "Consumer Staples",
+      "direction": "LONG",
+      "entry_residual_z": -1.5629188875308762,
+      "z_bucket": "1.5-2.0",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": 0.38479742538846456,
+      "spy_weight": -0.18355787952961625,
+      "sector_etf": "XLP",
+      "sector_etf_weight": -0.43164469508191927,
+      "entry_prices": {
+        "STZ": 119.75,
+        "SPY": 773.27001953,
+        "XLP": 82.68000031
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0012297350820924808,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": -0.0003500213915999863
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": -0.00042058778432532056
+        }
+      },
+      "path_stats": {
+        "mfe": -0.0002,
+        "mae": -0.0009232770962166292,
+        "time_to_convergence_minutes": 15
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": -1.5629188875308762
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": -0.36852720267670425
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": -0.4465838547573719
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 0.19500107007827303
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": -1.1510423714086928
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": 0.8995835016458942
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::SW",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "SW",
+      "sector": "Materials",
+      "direction": "LONG",
+      "entry_residual_z": -1.7459968397352845,
+      "z_bucket": "1.5-2.0",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": 0.285061005320146,
+      "spy_weight": -0.20761273665614122,
+      "sector_etf": "XLB",
+      "sector_etf_weight": -0.5073262580237128,
+      "entry_prices": {
+        "SW": 45.83000183,
+        "SPY": 773.27001953,
+        "XLB": 50.03499985
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0014251216969725733,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": -0.00012058155813954308
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": -3.342769563132082e-05
+        }
+      },
+      "path_stats": {
+        "mfe": -3.342769563132082e-05,
+        "mae": -0.0009462517891186928,
+        "time_to_convergence_minutes": 20
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": -1.7459968397352845
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": -0.9067971265439312
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": 0.7073380105795293
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 0.6553620302159703
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": -0.20871338874844428
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": 0.5426557183037714
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::UDR",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "UDR",
+      "sector": "Real Estate",
+      "direction": "LONG",
+      "entry_residual_z": -1.5560382764302518,
+      "z_bucket": "1.5-2.0",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": 0.5013149049211998,
+      "spy_weight": 0.09610513752330564,
+      "sector_etf": "XLRE",
+      "sector_etf_weight": -0.4025799575554946,
+      "entry_prices": {
+        "UDR": 34.06000137,
+        "SPY": 773.27001953,
+        "XLRE": 42.5
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0008470681421139264,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": 0.00016038894109380818
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": -9.867028113304953e-05
+        }
+      },
+      "path_stats": {
+        "mfe": 0.00016038894109380818,
+        "mae": -0.00046596276107277175,
+        "time_to_convergence_minutes": 5
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": -1.5560382764302518
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": -0.19949746932301696
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": -1.2076753237824542
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 0.6844715134945557
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": -0.9652941957976852
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": -0.3919374843686369
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::VTRS",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "VTRS",
+      "sector": "Health Care",
+      "direction": "LONG",
+      "entry_residual_z": -1.5750818989850224,
+      "z_bucket": "1.5-2.0",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": 0.4354157635392215,
+      "spy_weight": -0.09288714032404408,
+      "sector_etf": "XLV",
+      "sector_etf_weight": -0.4716970961367345,
+      "entry_prices": {
+        "VTRS": 17.09000015,
+        "SPY": 773.27001953,
+        "XLV": 169.69000244
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0010259020881870204,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": -0.0004844912136478056
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": 1.2731757980304482e-05
+        }
+      },
+      "path_stats": {
+        "mfe": 1.2731757980304482e-05,
+        "mae": -0.0005006174257093824,
+        "time_to_convergence_minutes": 5
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": -1.5750818989850224
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": 0.10157416134402009
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": 0.660770237855915
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 0.5274198434603036
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": 0.5993313762569003
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": 1.1175008976978396
+        }
+      ]
+    },
+    {
+      "signal_id": "2026-09-22T10:40:00-04:00::XYL",
+      "signal_time": "2026-09-22T10:40:00-04:00",
+      "symbol": "XYL",
+      "sector": "Industrials",
+      "direction": "LONG",
+      "entry_residual_z": -1.938371238191269,
+      "z_bucket": "1.5-2.0",
+      "time_bucket": "10:00-11:00",
+      "stock_weight": 0.33214994480125826,
+      "spy_weight": -0.42374155778968864,
+      "sector_etf": "XLI",
+      "sector_etf_weight": -0.24410849740905316,
+      "entry_prices": {
+        "XYL": 106.84999847,
+        "SPY": 773.27001953,
+        "XLI": 169.25
+      },
+      "market_context": {
+        "spy_60m_return": -0.0017298586970764251,
+        "spy_5m_realized_vol": 0.00038623478266261907,
+        "sector_5m_realized_vol": 0.0008280716489681053,
+        "market_regime": "DOWNTREND"
+      },
+      "selected_paper_entry": false,
+      "trade_outcome": null,
+      "horizons": {
+        "15m": {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "net_fixed_weight_return": -0.000286656588316939
+        },
+        "EOD": {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "net_fixed_weight_return": -0.00020901428055790415
+        }
+      },
+      "path_stats": {
+        "mfe": -0.0002,
+        "mae": -0.000762616216317931,
+        "time_to_convergence_minutes": 20
+      },
+      "residual_path": [
+        {
+          "timestamp": "2026-09-22T10:40:00-04:00",
+          "minutes": 0,
+          "z": -1.938371238191269
+        },
+        {
+          "timestamp": "2026-09-22T10:45:00-04:00",
+          "minutes": 5,
+          "z": -0.36802231965333665
+        },
+        {
+          "timestamp": "2026-09-22T10:50:00-04:00",
+          "minutes": 10,
+          "z": -0.6228410996562137
+        },
+        {
+          "timestamp": "2026-09-22T10:55:00-04:00",
+          "minutes": 15,
+          "z": 1.0921621768794392
+        },
+        {
+          "timestamp": "2026-09-22T11:00:00-04:00",
+          "minutes": 20,
+          "z": 0.1113584676720038
+        },
+        {
+          "timestamp": "2026-09-22T11:05:00-04:00",
+          "minutes": 25,
+          "z": 0.1021215542613889
+        }
+      ]
     }
   ],
-  "updated_at": "2026-09-22T14:14:40.243914+00:00"
+  "updated_at": "2026-09-22T15:12:47.552416+00:00"
 }
